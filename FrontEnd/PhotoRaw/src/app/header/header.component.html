@@ -1,5 +1,13 @@
 <div>
   <mat-toolbar class="mat-elevation-z6">
     <span><img src="./assets/img/black.png"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu">Productos</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item href="www.google.es">Fotografías</button>
+      <button mat-menu-item href="">Tutoriales</button>
+      <button mat-menu-item href="">Presets</button>
+      <button mat-menu-item href="">Libros</button>
+    </mat-menu>
   </mat-toolbar>
 </div>
