@@ -2,13 +2,18 @@
 background-color: #efefef;
 height: 5rem;
 }
-button{
+  img{
+    height: 4rem;
+  }
+  .search{
 
-  outline:none;
-}
-img{
-  height: 4rem;
-}
-button{
-  margin-left: 5rem;
+  }
+  .search input{
+
+    width:10em;
+  }
+.login-controller{
+  margin-right: 0;
+  margin-left: auto;
+  display: block;
 }

@@ -1,7 +1,8 @@
 <div>
   <mat-toolbar class="mat-elevation-z6">
     <span><img src="./assets/img/black.png"></span>
-    <a >Inicio</a>
+    <button mat-button>Inicio</button>
+    <!--Menú productos-->
     <button mat-button [matMenuTriggerFor]="menu">Productos</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item href="www.google.es">Fotografías</button>
@@ -9,8 +10,12 @@
       <button mat-menu-item href="">Presets</button>
       <button mat-menu-item href="">Libros</button>
     </mat-menu>
-    <button mat-button>Login</button>
-    <button mat-button>Registro</button>
+    <!--Barra buscador-->
+    <!--Componente login-controller-->
+    <div class="login-controller">
+      <app-login-controller></app-login-controller>
+    </div>
   </mat-toolbar>
 
 </div>
+<!---->
