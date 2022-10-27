@@ -2,6 +2,7 @@
   <mat-toolbar class="mat-elevation-z6">
     <span><img src="./assets/img/black.png"></span>
     <button mat-button>Inicio</button>
+    <button mat-button>Artistas</button>
     <!--Menú productos-->
     <button mat-button [matMenuTriggerFor]="menu">Productos</button>
     <mat-menu #menu="matMenu">
@@ -11,6 +12,11 @@
       <button mat-menu-item href="">Libros</button>
     </mat-menu>
     <!--Barra buscador-->
+    <div class="search">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="search" placeholder="Buscar" class="search-input">
+    </div>
+
     <!--Componente login-controller-->
     <div class="login-controller">
       <app-login-controller></app-login-controller>
