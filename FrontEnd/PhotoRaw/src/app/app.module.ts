@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginControllerComponent } from './login-controller/login-controller.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 //Angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,10 +17,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 //Módulos
 import { RoutingModule } from './routing/routing.module';
-import { InicioComponent } from './inicio/inicio.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -31,7 +35,8 @@ import { InicioComponent } from './inicio/inicio.component';
     LoginControllerComponent,
     FooterComponent,
     ArtistsComponent,
-    InicioComponent
+    InicioComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { InicioComponent } from './inicio/inicio.component';
     MatMenuModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

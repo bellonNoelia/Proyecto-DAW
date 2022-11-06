@@ -1,0 +1,15 @@
+body{
+  height: calc(100vh - 5em - 3em);
+  overflow:scroll;
+    margin-top: 3em;
+}
+.container{
+  width: 17em;
+  height: 15em;
+  margin: 3rem,auto;
+
+
+}
+img{
+  width: auto;
+}

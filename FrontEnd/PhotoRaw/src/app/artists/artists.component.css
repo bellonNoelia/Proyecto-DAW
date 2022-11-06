@@ -1,0 +1,30 @@
+body{
+  height: calc(100vh - 5em - 3em);
+  overflow:scroll;
+  margin-top: 3em;
+}
+
+.container{
+  width: 17rem;
+  height: 8rem;
+  margin: 3rem,auto;
+}
+
+.avatar{
+  margin-top: 1em;
+  margin-left: 0.5em;
+}
+.title{
+  margin-top: 1em;
+  margin-left: 0.6em;
+
+}
+.button-container{
+  margin-top: 0.5em;
+ }
+
+.button-container button{
+  color:#ffffff;
+  /* background-color: #000000; */
+  background-color: #494949;
+}
