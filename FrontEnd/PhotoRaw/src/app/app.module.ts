@@ -9,21 +9,26 @@ import { LoginControllerComponent } from './login-controller/login-controller.co
 import { FooterComponent } from './footer/footer.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DialogProfileComponent } from './dialog-profile/dialog-profile.component';
 
 //Angular material
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import {MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
 //Módulos
 import { RoutingModule } from './routing/routing.module';
-import { ProfileComponent } from './profile/profile.component';
+import { DialogLoginComponent } from './dialog-login/dialog-login.component';
+
 
 
 
@@ -36,7 +41,9 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     ArtistsComponent,
     InicioComponent,
-    ProfileComponent
+    ProfileComponent,
+    DialogProfileComponent,
+    DialogLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

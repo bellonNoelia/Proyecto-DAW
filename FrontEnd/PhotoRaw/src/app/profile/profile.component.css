@@ -4,12 +4,17 @@ body{
     margin-top: 3em;
 }
 .container{
-  width: 17em;
-  height: 15em;
+  width: 14em;
+  height: 14em;
   margin: 3rem,auto;
 
 
 }
 img{
   width: auto;
+}
+.button-container button{
+  color:#ffffff;
+  /* background-color: #000000; */
+  background-color: #494949;
 }
