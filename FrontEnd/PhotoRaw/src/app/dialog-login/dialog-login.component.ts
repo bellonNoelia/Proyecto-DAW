@@ -7,6 +7,7 @@ import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./dialog-login.component.css']
 })
 export class DialogLoginComponent implements OnInit {
+
   hide = true;
   constructor(public dialogRef: MatDialogRef<DialogLoginComponent>,
     @Inject(MAT_DIALOG_DATA)

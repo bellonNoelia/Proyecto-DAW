@@ -1,7 +1,11 @@
 <mat-card class="container">
+  <button mat-icon-button (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
   <div mat-card-avatar class="avatar">
     <img mat-card-md-image src="./assets/img/black.png" />
   </div>
+  <form>
   <mat-card-header class="header">
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
@@ -13,7 +17,7 @@
     <mat-form-field appearance="fill" class="pwd">
       <mat-label>Contraseña</mat-label>
       <input
-        matInput
+        matInput matSuffix
         [type]="hide ? 'password' : 'text'"
         placeholder="Contraseña"
       />
@@ -31,4 +35,5 @@
   <mat-card-actions class="btn">
     <button mat-stroked-button color="primary" class="btn-block">Log in</button>
   </mat-card-actions>
+</form>
 </mat-card>

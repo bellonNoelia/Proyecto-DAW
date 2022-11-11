@@ -1,5 +1,7 @@
 .container {
   width: 20rem;
+  height: 20rem;
+  overflow-y:scroll;
 
 }
 .avatar {
