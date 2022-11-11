@@ -1,1 +1,9 @@
-<p>dialog-delete works!</p>
+<mat-dialog-content>
+	<p>
+		{{message}}
+	</p>
+</mat-dialog-content>
+<mat-dialog-actions >
+	<button mat-raised-button color="primary" (click)="accept()" tabindex="1">{{acceptBtnTxt}}</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">{{cancelBtnTxt}}</button>
+</mat-dialog-actions>

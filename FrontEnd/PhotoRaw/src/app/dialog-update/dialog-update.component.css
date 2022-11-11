@@ -1,0 +1,20 @@
+.container {
+  width: 20rem;
+  height: 32rem;
+
+}
+.close {
+  float: right;
+}
+
+.mat-form-field {
+  margin-left: 0.7em;
+
+}
+.btn{
+  margin:auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

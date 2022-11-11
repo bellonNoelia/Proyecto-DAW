@@ -1,6 +1,6 @@
 .container {
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 32rem;
   overflow-y:scroll;
 
 }
@@ -15,13 +15,9 @@
   margin-top: 2em;
   margin-left: 7.5em;
 }
-.form {
-  margin-left: 5em;
-}
-.pwd {
-  display: block;
-}
-.btn {
-  margin-left: 7.5em;
+
+
+ .mat-form-field {
+  margin-left: 0.7em;
 
 }
