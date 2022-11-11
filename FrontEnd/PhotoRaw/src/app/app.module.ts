@@ -10,10 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProfileComponent } from './profile/profile.component';
-import { DialogProfileComponent } from './dialog-profile/dialog-profile.component';
+import { DialogReadComponent } from './dialog-read/dialog-read.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { PhotosComponent } from './photos/photos.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
+
+
 
 //Angular material
 import {MatToolbarModule } from '@angular/material/toolbar';
@@ -40,6 +44,7 @@ import { RoutingModule } from './routing/routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +54,12 @@ import { RoutingModule } from './routing/routing.module';
     ArtistsComponent,
     InicioComponent,
     ProfileComponent,
-    DialogProfileComponent,
+    DialogReadComponent,
     DialogLoginComponent,
     PhotosComponent,
-    DialogRegisterComponent
+    DialogRegisterComponent,
+    DialogDeleteComponent,
+    DialogUpdateComponent
   ],
   imports: [
     BrowserModule,

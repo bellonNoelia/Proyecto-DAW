@@ -5,7 +5,8 @@
 
       <mat-card class="container">
         <img mat-card-md-image src="{{photo.img}}" >
-        <mat-card-content>
+        <br>
+        <mat-card-content class="info">
 
           <p>{{ photo.name }}</p>
           <p>Desde {{ photo.price }} €</p>
@@ -14,18 +15,17 @@
            <!-- <img src="{{photo.img}}" width="50%" height="50%"/> -->
 
 
-        <mat-card-actions>
-          <button mat-icon-button>
+        <mat-card-actions class="btn">
+          <button mat-icon-button (click)="openDialogRead()" >
             <mat-icon aria-label="label">visibility</mat-icon>
           </button>
-            <button mat-icon-button>
+          <button mat-icon-button>
+            <mat-icon aria-label="label">local_grocery_store</mat-icon>
+          </button>
+            <button mat-icon-button (click)="openDialogUpdate()">
               <mat-icon aria-label="label">edit</mat-icon>
             </button>
-            <button mat-icon-button>
-              <mat-icon aria-label="label">update</mat-icon>
-            </button>
-
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDialogDelete()">
                 <mat-icon aria-label="label">delete</mat-icon>
               </button>
 

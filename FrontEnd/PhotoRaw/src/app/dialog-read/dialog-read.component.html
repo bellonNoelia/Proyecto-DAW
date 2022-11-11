@@ -1,0 +1,39 @@
+<div >
+    <button class="close" mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="header">
+      <mat-card-header>
+        <div mat-card-avatar> <img mat-card-image src="{{ artist[1].img }}" style="width: 2rem;"/></div>
+        <mat-card-title style="font-size: 0.9rem;">{{ artist[1].name }}</mat-card-title>
+
+      </mat-card-header>
+      <div class="imgcontainer"> <img  src="{{photos[4].img}}" class="img"></div>
+
+      <mat-card-content class="infoContainer" >
+      <br>
+      <div class="info">
+        <p>Precio {{ photos[1].price }} €</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Medidas</mat-label>
+          <select matNativeControl required>
+            <option value="13x18">13x18 cm</option>
+            <option value="21x30">21x30 cm</option>
+            <option value="30x40">30x40 cm</option>
+            <option value="40x50">40x50 cm</option>
+            <option value="50x70">50x70 cm</option>
+          </select>
+        </mat-form-field>
+      </div>
+
+
+      </mat-card-content>
+      <mat-card-actions class="btn">
+        <button mat-icon-button>
+          <mat-icon >local_grocery_store</mat-icon>
+        </button>
+        </mat-card-actions>
+
+    </div>
+
+</div>
