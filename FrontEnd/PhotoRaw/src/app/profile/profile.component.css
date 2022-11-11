@@ -1,12 +1,22 @@
 body {
   height: calc(100vh - 5em - 3em);
   overflow-y: scroll;
-  margin-top: 3em;
+
+}
+.artist{
+margin-top: 2em;
+display:block;
+text-align: center;
+}
+.artist img{
+  width: 6em;
+
 }
 .container {
-  width: 14em;
+  margin-top: 3em;
+  width: 10em;
   height: 14em;
-  margin: 3rem,
+  margin: 3rem;
 }
 img {
   width: auto;

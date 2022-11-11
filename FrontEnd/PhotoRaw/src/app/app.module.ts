@@ -38,6 +38,7 @@ import {MatRadioModule} from '@angular/material/radio';
 
 //Módulos
 import { RoutingModule } from './routing/routing.module';
+import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 
 
 
@@ -59,7 +60,8 @@ import { RoutingModule } from './routing/routing.module';
     PhotosComponent,
     DialogRegisterComponent,
     DialogDeleteComponent,
-    DialogUpdateComponent
+    DialogUpdateComponent,
+    DialogCreateComponent
   ],
   imports: [
     BrowserModule,

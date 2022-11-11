@@ -1,0 +1,81 @@
+<div class="container" >
+  <button class="close" mat-icon-button (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <form>
+    <mat-card-header class="header">
+      <mat-card-title>Modificar</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Título</mat-label>
+        <input
+          matInput
+          placeholder="Título"
+          name="title"
+          ngModel
+          required
+        />
+      </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Precio</mat-label>
+          <input
+            matInput
+            placeholder="precio"
+            name="price"
+            type="number"
+            ngModel
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Precios</mat-label>
+          <select matNativeControl required>
+            <option value="13x18">13x18 cm</option>
+            <option value="21x30">21x30 cm</option>
+            <option value="30x40">30x40 cm</option>
+            <option value="40x50">40x50 cm</option>
+            <option value="50x70">50x70 cm</option>
+          </select>
+
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Medidas</mat-label>
+          <select matNativeControl required>
+            <option value="13x18">13x18 cm</option>
+            <option value="21x30">21x30 cm</option>
+            <option value="30x40">30x40 cm</option>
+            <option value="40x50">40x50 cm</option>
+            <option value="50x70">50x70 cm</option>
+          </select>
+        </mat-form-field>
+
+      <mat-form-field appearance="fill">
+      <mat-label>Subir imagen</mat-label>
+			<button mat-icon-button matPrefix >
+        <mat-icon>attach_file</mat-icon>
+      </button>
+			<input type="text" readonly matInput />
+			<input
+        type="file"
+        hidden
+        required
+      />
+		</mat-form-field>
+
+
+    </mat-card-content>
+
+    <mat-card-actions class="btn">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="btn-block"
+        type="submit"
+      >
+        Modificar
+      </button>
+    </mat-card-actions>
+  </form>
+</div>
