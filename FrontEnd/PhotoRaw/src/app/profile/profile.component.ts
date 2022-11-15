@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PHOTOS } from 'collection-photo';
-import { ARTISTAS } from 'collection-artist';
+import { ARTISTAS } from '../artists/artists.json';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateComponent } from '../dialog-create/dialog-create.component';
 import { DialogReadComponent } from '../dialog-read/dialog-read.component';
