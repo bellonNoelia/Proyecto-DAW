@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../service/user.service';
+import { User } from './user';
 
 @Component({
   selector: 'app-dialog-login',
@@ -8,6 +9,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./dialog-login.component.css']
 })
 export class DialogLoginComponent implements OnInit {
+
  email:string;
  pwd:string;
   hide = true;
@@ -20,7 +22,7 @@ export class DialogLoginComponent implements OnInit {
 
 
   login(){
-    const user = {email: this.email, pwd: this.pwd};
+    let user=new User{email: email, pwd: pwd};
     this.userService.login(user).subscribe( data => {
       console.log(data);});
   }
