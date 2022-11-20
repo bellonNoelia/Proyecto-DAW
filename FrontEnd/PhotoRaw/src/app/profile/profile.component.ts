@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PHOTOS } from 'collection-photo';
-import { ARTISTAS } from '../artists/artists.json';
+import { Artist} from '../artists/artist';
+import { ArtistService } from '../artists/artist.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateComponent } from '../dialog-create/dialog-create.component';
 import { DialogReadComponent } from '../dialog-read/dialog-read.component';
@@ -13,11 +14,13 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  artist=ARTISTAS;
+  artists: Artist[];
   photos = PHOTOS;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,private artistService: ArtistService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {this.artistService
+    .getArtistas()
+    .subscribe((artists) => (this.artists = artists));}
   openDialogCreate() {
     const dialogRef = this.dialog.open(DialogCreateComponent, {
 
