@@ -2,7 +2,7 @@
 -- Tue Sep 27 18:17:30 2022
 
 -- -----------------------------------------------------
--- DROP DATABASE photoraw;
+ DROP DATABASE photoraw;
 CREATE DATABASE IF NOT EXISTS photoraw;
 USE photoraw;
 
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS user (
   user_age INT NOT NULL,
   rol_cod INT NOT NULL,
   CONSTRAINT fk_user_rol FOREIGN KEY (rol_cod) REFERENCES rol (rol_id) 
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
  );
 
 
