@@ -10,43 +10,83 @@ USE photoraw;
 -- Table ROL
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS rol (
-  rol_id INT NOT NULL PRIMARY KEY,
+  id INT NOT NULL PRIMARY KEY,
   rol VARCHAR(45) NOT NULL
 );
 
-
+INSERT INTO rol 
+VALUES (1,'Fotógrafo'),
+(2,'Cliente');
 -- -----------------------------------------------------
 -- Table USUARIO
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS user (
-  user_id INT auto_increment NOT NULL PRIMARY KEY,
+  id INT auto_increment NOT NULL PRIMARY KEY,
   avatar blob ,
   user_name VARCHAR(45) NOT NULL,
   user_lastname VARCHAR(45) NOT NULL,
   user_password VARCHAR(45) NOT NULL,
   user_email VARCHAR(45) NOT NULL,
   user_age INT NOT NULL,
-  rol_cod INT NOT NULL,
-  CONSTRAINT fk_user_rol FOREIGN KEY (rol_cod) REFERENCES rol (rol_id) 
+  rol_id INT NOT NULL,
+  CONSTRAINT fk_user_rol FOREIGN KEY (rol_id) REFERENCES rol (id) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
  );
 
 
 -- -----------------------------------------------------
+-- Table CATEGORIA
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS category (
+  id INT NOT NULL PRIMARY KEY,
+  category VARCHAR(45) NOT NULL
+);
+
+INSERT INTO category
+VALUES (1,'Artística'),
+(2,'Arquitectura'),
+(3,'Autor'),
+(4,'Retrato'),
+(5,'Surrealista'),
+(6,'Paisajes'),
+(7,'Aérea'),
+(8,'Deportes'),
+(9,'Abstracta'),
+(10,'Gastronómica'),
+(11,'Naturaleza'),
+(12,'Animales'),
+(13,'Macrogotografía'),
+(14,'Moda'),
+(15,'Viajes')
+;
+
+
+-- -----------------------------------------------------
 -- Table PHOTO
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS photo (
-  photo_id INT NOT NULL PRIMARY KEY,
+  id INT NOT NULL PRIMARY KEY,
   photo_name VARCHAR(45) NOT NULL,
   photo_price VARCHAR(45) NOT NULL,
   photo_size VARCHAR(45) NULL,
   photo BLOB NOT NULL,
-  user_cod INT NOT NULL,
-    CONSTRAINT fk_user_id FOREIGN KEY (user_cod) REFERENCES user (user_id) 
+  user_id INT NOT NULL,
+  category_id INT NOT NULL,
+  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user (id) 
+  ON UPDATE CASCADE
+  ON DELETE CASCADE,
+  CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES category (id) 
   ON UPDATE CASCADE
   ON DELETE CASCADE
  );
 
-
-
+-- -----------------------------------------------------
+-- Table STOCK
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS STOCK (
+id INT NOT NULL PRIMARY KEY,
+photo_id int,
+stock INT unsigned NOT null,
+CONSTRAINT fk_photo_id FOREIGN KEY (photo_id) REFERENCES photo (id) 
+);
