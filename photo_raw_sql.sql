@@ -2,7 +2,7 @@
 -- Tue Sep 27 18:17:30 2022
 
 -- -----------------------------------------------------
- DROP DATABASE photoraw;
+ -- DROP DATABASE photoraw;
 CREATE DATABASE IF NOT EXISTS photoraw;
 USE photoraw;
 

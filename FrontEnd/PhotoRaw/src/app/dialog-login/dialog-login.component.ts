@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../service/user.service';
-import { User } from './user';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-dialog-login',
@@ -12,6 +12,7 @@ export class DialogLoginComponent implements OnInit {
 
  email:string;
  pwd:string;
+ user =new User()
   hide = true;
   constructor(public userService: UserService,public dialogRef: MatDialogRef<DialogLoginComponent>,
     @Inject(MAT_DIALOG_DATA)
@@ -22,8 +23,8 @@ export class DialogLoginComponent implements OnInit {
 
 
   login(){
-    let user=new User{email: email, pwd: pwd};
-    this.userService.login(user).subscribe( data => {
+
+    this.userService.login(this.user).subscribe( data => {
       console.log(data);});
   }
   //Cerrar diálogo login
