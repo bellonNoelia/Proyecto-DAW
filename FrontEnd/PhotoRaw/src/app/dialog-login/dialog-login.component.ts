@@ -10,23 +10,22 @@ import { User } from '../model/user';
 })
 export class DialogLoginComponent implements OnInit {
 
- email:string;
- pwd:string;
- user =new User()
   hide = true;
   constructor(public userService: UserService,public dialogRef: MatDialogRef<DialogLoginComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public message:string) { }
+    public data: User) { }
 
   ngOnInit(): void {
   }
 
 
-  login(){
+  login(user:User){
 
-    this.userService.login(this.user).subscribe( data => {
+    this.userService.login(user).subscribe( data => {
       console.log(data);});
   }
+
+
   //Cerrar diálogo login
   close() {
     this.dialogRef.close();

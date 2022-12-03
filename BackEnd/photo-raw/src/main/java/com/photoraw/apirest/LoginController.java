@@ -13,7 +13,7 @@ import com.photoraw.apirest.dto.UserDTO;
 
 @RestController
 @RequestMapping("api/login")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
 	
 	@GetMapping("{email}/{pwd}")
