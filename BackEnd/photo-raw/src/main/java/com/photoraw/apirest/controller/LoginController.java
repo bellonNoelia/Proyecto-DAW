@@ -1,5 +1,6 @@
-package com.photoraw.apirest;
+package com.photoraw.apirest.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,26 +11,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.photoraw.apirest.dto.UserDTO;
+import com.photoraw.domain.entity.User;
+import com.photoraw.domain.usecase.UserUseCase;
 
 @RestController
 @RequestMapping("api/login")
 @CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
-	
+
+	@Autowired
+	private UserUseCase userUseCase;
+
 	@GetMapping("{email}/{pwd}")
-	public ResponseEntity<String> login(
-			@PathVariable("email")String email,
-			@PathVariable("pwd") String pwd) {
+	public ResponseEntity<String> login(@PathVariable("email") String email, @PathVariable("pwd") String pwd) {
 
 		return ResponseEntity.ok().body("PRUEBA");
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<String> login(@RequestBody(required = true) UserDTO usuario) {
-		if(usuario != null && usuario.getEmail().contains("noe")) {
-			ResponseEntity.ok().body("true");
+
+		User login = userUseCase.login(usuario.getEmail(),usuario.getPwd());
+		
+		if (login  == null) {
+			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok().body("false");
+		
+		return ResponseEntity.ok().body("Usuario existe");
 	}
-	
+
 }

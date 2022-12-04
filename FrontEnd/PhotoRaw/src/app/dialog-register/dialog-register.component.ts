@@ -1,10 +1,13 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserService } from '../service/user.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-dialog-register',
   templateUrl: './dialog-register.component.html',
   styleUrls: ['./dialog-register.component.css']
+
 })
 export class DialogRegisterComponent implements OnInit {
   firstname:string;
@@ -15,18 +18,16 @@ export class DialogRegisterComponent implements OnInit {
   pwdConfirm:string;
 
 hide=true;
-  constructor(public dialogRef: MatDialogRef<DialogRegisterComponent>,
+  constructor(public userService: UserService,public dialogRef: MatDialogRef<DialogRegisterComponent>,
   @Inject(MAT_DIALOG_DATA)
-    public data:string) { }
+    public data: User) { }
 
   ngOnInit(): void {
   }
-  register(){
-    console.log(this.firstname);
-    console.log(this.lastname);
-    console.log(this.age);
-    console.log(this.pwd);
-    console.log(this.pwdConfirm);
+  register(user:User){
+    this.userService.register(user).subscribe(data => {
+      console.log(data);
+    });
   }
   close() {
     this.dialogRef.close();

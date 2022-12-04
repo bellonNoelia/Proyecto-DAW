@@ -21,4 +21,12 @@ export class UserService {
     //OLD
     //return this.http.post(`${this.urlApi}`,user)
   }
+  public register(user: User):Observable<{}>{
+    //prueba
+      const header = {'content-type': 'application/json'}
+      const body = JSON.stringify(user);
+      return this.http.post(`${this.urlApi}`,body, {'headers': header})
+    //OLD
+    //return this.http.post(`${this.urlApi}`,user)
+  }
 }

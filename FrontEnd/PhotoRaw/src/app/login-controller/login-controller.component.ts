@@ -20,6 +20,6 @@ export class LoginControllerComponent implements OnInit {
 
   }
   openDialogRegister(){
-    const dialogRef = this.dialog.open(DialogRegisterComponent, { })
+    const dialogRef = this.dialog.open(DialogRegisterComponent, { data: new Object})
   }
 }
