@@ -17,7 +17,7 @@ export class DialogRegisterComponent implements OnInit {
 hide=true;
   constructor(public dialogRef: MatDialogRef<DialogRegisterComponent>,
   @Inject(MAT_DIALOG_DATA)
-    public message:string) { }
+    public data:string) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +31,6 @@ hide=true;
   close() {
     this.dialogRef.close();
   }
-submit(){}
+
 
 }

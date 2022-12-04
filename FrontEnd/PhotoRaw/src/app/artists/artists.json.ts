@@ -1,4 +1,4 @@
-import { Artist } from "./artist";
+import { Artist } from "../model/artist";
 
 export const ARTISTAS:Artist[]=[
 {img:'assets/avatar/1.png',id:1,name:'Desire',firstName:'Paz'},

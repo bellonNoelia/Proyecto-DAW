@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PHOTOS } from 'collection-photo';
-import { Artist} from '../artists/artist';
+import { Artist} from '../model/artist';
 import { ArtistService } from '../artists/artist.service';
 @Component({
   selector: 'app-dialog-read',

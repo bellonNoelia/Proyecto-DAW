@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PHOTOS } from 'collection-photo';
-import { Artist} from '../artists/artist';
+import { Artist} from '../model/artist';
 import { ArtistService } from '../artists/artist.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateComponent } from '../dialog-create/dialog-create.component';

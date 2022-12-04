@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //Objetos
-import { Artist } from './artist';
+import { Artist } from '../model/artist';
 import { ArtistService } from './artist.service';
 @Component({
   selector: 'app-artists',

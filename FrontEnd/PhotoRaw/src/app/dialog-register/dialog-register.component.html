@@ -12,19 +12,19 @@
     <mat-card-content class="form" >
       <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre" name="firstname" [(ngModel)]="firstname" required/>
+        <input matInput placeholder="Nombre" name="firstname" [(ngModel)]="data.firstname" required/>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Apellidos</mat-label>
-        <input matInput placeholder="Apellidos" name="lastname" [(ngModel)]="lastname" required/>
+        <input matInput placeholder="Apellidos" name="lastname" [(ngModel)]="data.lastname" required/>
       </mat-form-field>
       <mat-form-field appearance="fill"  >
         <mat-label>Edad</mat-label>
-        <input matInput placeholder="Edad" name="age" min="18" max="100"  type="number" [(ngModel)]="age" required/>
+        <input matInput placeholder="Edad" name="age" min="18" max="100"  type="number" [(ngModel)]="data.age" required/>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" name="email" [(ngModel)]="email" required/>
+        <input matInput placeholder="Email" name="email" [(ngModel)]="data.email" required/>
       </mat-form-field>
       <mat-form-field appearance="fill" >
         <mat-label>Contraseña</mat-label>
@@ -32,7 +32,7 @@
           matInput
           [type]="hide ? 'password' : 'text'"
           placeholder="Contraseña"
-          name="pwd" [(ngModel)]="pwd" required/>
+          name="pwd" [(ngModel)]="data.pwd" required/>
         <button
           mat-icon-button matSuffix
           (click)="hide = !hide"
@@ -48,7 +48,7 @@
           matInput
           [type]="hide ? 'password' : 'text'"
           placeholder="Contraseña"
-          name="pwdConfirm" [(ngModel)]="pwdConfirm" required/>
+          name="pwdConfirm" [(ngModel)]="data.pwdConfirm" required/>
         <button
           mat-icon-button matSuffix
           (click)="hide = !hide"
@@ -67,7 +67,7 @@
     </mat-card-content>
 
   <mat-card-actions class="btn">
-    <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="register()">Registrar</button>
+    <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="register(data)">Registrar</button>
   </mat-card-actions>
 </form>
 </mat-card>
