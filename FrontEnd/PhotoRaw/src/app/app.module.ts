@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //Componentes
 import { HeaderComponent } from './header/header.component';
 import { LoginControllerComponent } from './login-controller/login-controller.component';

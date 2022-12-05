@@ -2,7 +2,7 @@ package com.photoraw.domain.entity;
 
 public class User {
 
-	private int id;
+	private Integer id;
 	private byte[] avatar;
 	private String firstName;
 	private String lastName;
@@ -15,7 +15,7 @@ public class User {
 		super();
 	}
 
-	public User(int id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd, Rol rol) {
+	public User(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd, Rol rol) {
 		super();
 		this.id = id;
 		this.avatar = avatar;

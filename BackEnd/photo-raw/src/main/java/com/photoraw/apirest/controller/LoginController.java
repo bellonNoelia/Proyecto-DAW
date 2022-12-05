@@ -1,5 +1,7 @@
 package com.photoraw.apirest.controller;
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,8 +38,10 @@ public class LoginController {
 		if (login  == null) {
 			return ResponseEntity.notFound().build();
 		}
+		String datoEntrada = usuario.getEmail()+usuario.getPwd();
+		String token = Base64.getEncoder().encodeToString(datoEntrada.getBytes());
 		
-		return ResponseEntity.ok().body("Usuario existe");
+		return ResponseEntity.ok().body(token);
 	}
 
 }

@@ -18,7 +18,7 @@ public class UserEntity implements Serializable {
 	
     @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column
 	private byte[] avatar;
 	@Column(name = "user_name")
@@ -34,14 +34,19 @@ public class UserEntity implements Serializable {
 	@ManyToOne
 	private RolEntity rol;
 
-	public UserEntity(int id, String firstName, String lastName, int age, String email, String pwd) {
+
+
+	public UserEntity(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd,
+			RolEntity rol) {
 		super();
 		this.id = id;
+		this.avatar = avatar;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.email = email;
 		this.pwd = pwd;
+		this.rol = rol;
 	}
 
 	public UserEntity() {

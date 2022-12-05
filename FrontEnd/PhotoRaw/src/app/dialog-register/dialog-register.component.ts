@@ -10,11 +10,7 @@ import { User } from '../model/user';
 
 })
 export class DialogRegisterComponent implements OnInit {
-  firstname:string;
-  lastname:string;
-  age:number;
-  email:string;
-  pwd:string;
+
   pwdConfirm:string;
 
 hide=true;

@@ -2,6 +2,8 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogRegisterComponent } from '../dialog-register/dialog-register.component';
 
 @Component({
   selector: 'app-dialog-login',
@@ -11,7 +13,7 @@ import { User } from '../model/user';
 export class DialogLoginComponent implements OnInit {
 
   hide = true;
-  constructor(public userService: UserService,public dialogRef: MatDialogRef<DialogLoginComponent>,
+  constructor(public dialog: MatDialog, public userService: UserService,public dialogRef: MatDialogRef<DialogLoginComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: User) { }
 
@@ -23,11 +25,15 @@ export class DialogLoginComponent implements OnInit {
 
     this.userService.login(user).subscribe( data => {
       console.log(data);});
+
   }
 
 
   //Cerrar diálogo login
   close() {
     this.dialogRef.close();
+  }
+  openDialogRegister(){
+    const dialogRef = this.dialog.open(DialogRegisterComponent, { data: new Object})
   }
 }

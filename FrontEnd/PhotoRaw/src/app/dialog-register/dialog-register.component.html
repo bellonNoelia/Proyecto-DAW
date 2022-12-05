@@ -10,7 +10,7 @@
     <mat-card-title>Registro</mat-card-title>
   </mat-card-header>
     <mat-card-content class="form" >
-    <!---  <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
         <input matInput placeholder="Nombre" name="firstname" [(ngModel)]="data.firstname" required/>
       </mat-form-field>
@@ -21,7 +21,7 @@
       <mat-form-field appearance="fill"  >
         <mat-label>Edad</mat-label>
         <input matInput placeholder="Edad" name="age" min="18" max="100"  type="number" [(ngModel)]="data.age" required/>
-      </mat-form-field>-->
+      </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" name="email" [(ngModel)]="data.email" required/>
@@ -44,11 +44,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Confirmar Contraseña</mat-label>
-        <!--<input
+      <input
           matInput
           [type]="hide ? 'password' : 'text'"
           placeholder="Contraseña"
-          name="pwdConfirm" [(ngModel)]="data.pwdConfirm" required/>-->
+          name="pwdConfirm" [(ngModel)]="pwdConfirm" required/>
         <button
           mat-icon-button matSuffix
           (click)="hide = !hide"
@@ -61,8 +61,8 @@
       </mat-form-field>
       <br>
       <mat-radio-group>
-        <mat-radio-button value="fotografo">Fotógrafo</mat-radio-button>
-        <mat-radio-button value="usuario">Usuario</mat-radio-button>
+        <mat-radio-button value="fotografo" [(ngModel)]="data.rol">Fotógrafo</mat-radio-button>
+        <mat-radio-button value="usuario" [(ngModel)]="data.rol">Usuario</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
 

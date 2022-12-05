@@ -12,21 +12,19 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   private urlApi = 'http://localhost:8080/api/login'
+  private urlApiRegister = 'http://localhost:8080/api/register'
 
   public login(user: User):Observable<{}>{
     //prueba
       const header = {'content-type': 'application/json'}
       const body = JSON.stringify(user);
       return this.http.post(`${this.urlApi}`,body, {'headers': header})
-    //OLD
-    //return this.http.post(`${this.urlApi}`,user)
+
   }
   public register(user: User):Observable<{}>{
-    //prueba
       const header = {'content-type': 'application/json'}
       const body = JSON.stringify(user);
-      return this.http.post(`${this.urlApi}`,body, {'headers': header})
-    //OLD
-    //return this.http.post(`${this.urlApi}`,user)
+      return this.http.post(`${this.urlApiRegister}`,body, {'headers': header})
+
   }
 }

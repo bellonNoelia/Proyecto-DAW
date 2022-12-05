@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.photoraw.domain.entity.User;
-import com.photoraw.domain.repository.UserRepository;
+import com.photoraw.domain.repository.RegisterRepository;
 import com.photoraw.infrastructure.mapper.UserMapper;
 import com.photoraw.infrastructure.respository.execute.UserCrudRepository;
 
 @Repository
-public class UserRepositoryImpl implements UserRepository {
+public class RegisterRepositoryImpl implements RegisterRepository {
 	
 	@Autowired
 	private UserCrudRepository crud;
@@ -18,13 +18,9 @@ public class UserRepositoryImpl implements UserRepository {
 	private UserMapper userMapper;
 	
 	@Override
-	public User login(String email, String pwd) {
-		return userMapper.toUser(crud.findUser(email, pwd));
-	}
-	
-	
-//	public void register() {
-//		crud.save(mapper.toUserEntity)
-//	}
-	
+	public User register(User usuario) {
+		crud.save(userMapper.toUserEntity(usuario));
+		return usuario;
+}
+
 }
