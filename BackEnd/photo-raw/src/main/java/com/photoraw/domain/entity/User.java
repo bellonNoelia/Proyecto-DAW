@@ -9,13 +9,13 @@ public class User {
 	private int age;
 	private String email;
 	private String pwd;
-	private Rol rol;
+	private int rol;
 
 	public User() {
 		super();
 	}
 
-	public User(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd, Rol rol) {
+	public User(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd, int rol) {
 		super();
 		this.id = id;
 		this.avatar = avatar;
@@ -27,11 +27,11 @@ public class User {
 		this.rol = rol;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -83,12 +83,14 @@ public class User {
 		this.pwd = pwd;
 	}
 
-	public Rol getRol() {
+	public int getRol() {
 		return rol;
 	}
 
-	public void setRol(Rol rol) {
+	public void setRol(int rol) {
 		this.rol = rol;
 	}
+
+
 
 }

@@ -21,21 +21,24 @@ public interface UserMapper {
 					entity.getAge(), 
 					entity.getEmail(), 
 					entity.getPwd(), 
-					toRol(entity.getRol()));
+//					toRol(entity.getRol()));
+					entity.getIdRol());
+
 	}
 	default public UserEntity toUserEntity(User user) {
 		if(user == null) {
 			return null;
 		}
 			return new UserEntity(
-					user.getId(), 
+					user.getId(),
 					user.getAvatar(), 
 					user.getFirstName(), 
 					user.getLastName(), 
 					user.getAge(), 
 					user.getEmail(), 
 					user.getPwd(), 
-					toRolEntity(user.getRol()));
+					//toRolEntity(user.getRol()));
+					user.getRol());
 	}
 	default Rol toRol(RolEntity entity) {
 		if(entity == null) {

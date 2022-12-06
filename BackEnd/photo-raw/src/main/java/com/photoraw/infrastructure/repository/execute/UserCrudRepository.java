@@ -1,4 +1,4 @@
-package com.photoraw.infrastructure.respository.execute;
+package com.photoraw.infrastructure.repository.execute;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

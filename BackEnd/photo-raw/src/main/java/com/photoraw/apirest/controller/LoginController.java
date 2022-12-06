@@ -1,7 +1,5 @@
 package com.photoraw.apirest.controller;
 
-import java.util.Base64;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.photoraw.apirest.dto.TokenDTO;
 import com.photoraw.apirest.dto.UserDTO;
-import com.photoraw.domain.entity.User;
 import com.photoraw.domain.usecase.UserUseCase;
 
 @RestController
@@ -31,17 +29,8 @@ public class LoginController {
 	}
 
 	@PostMapping
-	public ResponseEntity<String> login(@RequestBody(required = true) UserDTO usuario) {
-
-		User login = userUseCase.login(usuario.getEmail(),usuario.getPwd());
-		
-		if (login  == null) {
-			return ResponseEntity.notFound().build();
-		}
-		String datoEntrada = usuario.getEmail()+usuario.getPwd();
-		String token = Base64.getEncoder().encodeToString(datoEntrada.getBytes());
-		
-		return ResponseEntity.ok().body(token);
+	public ResponseEntity<TokenDTO> login(@RequestBody(required = true) UserDTO usuario) {
+		return ResponseEntity.ok().body(new TokenDTO(userUseCase.login(usuario.getEmail(),usuario.getPwd())));
 	}
 
 }

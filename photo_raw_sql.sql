@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS user (
   user_name VARCHAR(45) NOT NULL,
   user_lastname VARCHAR(45) NOT NULL,
   user_password VARCHAR(45) NOT NULL,
-  user_email VARCHAR(45) NOT NULL,
+  user_email VARCHAR(45) NOT NULL unique,
   user_age INT NOT NULL,
   rol_id INT NOT NULL,
   CONSTRAINT fk_user_rol FOREIGN KEY (rol_id) REFERENCES rol (id) 
@@ -66,7 +66,7 @@ VALUES (1,'Artística'),
 -- Table PHOTO
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS photo (
-  id INT NOT NULL PRIMARY KEY,
+  id INT auto_increment NOT NULL PRIMARY KEY,
   photo_name VARCHAR(45) NOT NULL,
   photo_price VARCHAR(45) NOT NULL,
   photo_size VARCHAR(45) NULL,

@@ -14,11 +14,12 @@ export class UserService {
   private urlApi = 'http://localhost:8080/api/login'
   private urlApiRegister = 'http://localhost:8080/api/register'
 
-  public login(user: User):Observable<{}>{
-    //prueba
-      const header = {'content-type': 'application/json'}
+  public login(user: User):Observable<String>{
       const body = JSON.stringify(user);
-      return this.http.post(`${this.urlApi}`,body, {'headers': header})
+      const header = {'content-type': 'application/json'}
+      return this.http.post<String>(`${this.urlApi}`,
+      body, {'headers': header}
+      )
 
   }
   public register(user: User):Observable<{}>{

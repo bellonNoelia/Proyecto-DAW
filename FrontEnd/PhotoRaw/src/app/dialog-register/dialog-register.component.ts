@@ -3,6 +3,7 @@ import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user';
 
+
 @Component({
   selector: 'app-dialog-register',
   templateUrl: './dialog-register.component.html',
@@ -21,10 +22,19 @@ hide=true;
   ngOnInit(): void {
   }
   register(user:User){
-    this.userService.register(user).subscribe(data => {
-      console.log(data);
+    this.userService.register(user).subscribe({
+      next: (data) => {
+        console.log(data)
+        this.close();
+      },
+      error: (error) => {
+        if (error.status == 500) {
+          alert("Error al insertar los datos")
+        }
+      },
     });
   }
+
   close() {
     this.dialogRef.close();
   }

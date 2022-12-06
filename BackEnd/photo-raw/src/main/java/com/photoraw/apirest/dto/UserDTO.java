@@ -10,9 +10,9 @@ public class UserDTO {
 	@JsonProperty
 	private byte[] avatar;
 	@JsonProperty
-	private String firstName;
+	private String firstname;
 	@JsonProperty
-	private String lastName;
+	private String lastname;
 	@JsonProperty
 	private int age;
 	@JsonProperty
@@ -20,27 +20,29 @@ public class UserDTO {
 	@JsonProperty
 	private String pwd;
 	@JsonProperty
-	private Rol rol;
+	private int rol;
+	
 	public UserDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public UserDTO(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd,
-			Rol rol) {
+			int idRol) {
 		super();
 		this.id = id;
 		this.avatar = avatar;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstname = firstName;
+		this.lastname = lastName;
 		this.age = age;
 		this.email = email;
 		this.pwd = pwd;
-		this.rol = rol;
+		this.rol = idRol;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public byte[] getAvatar() {
@@ -50,16 +52,16 @@ public class UserDTO {
 		this.avatar = avatar;
 	}
 	public String getFirstName() {
-		return firstName;
+		return firstname;
 	}
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstname = firstName;
 	}
 	public String getLastName() {
-		return lastName;
+		return lastname;
 	}
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastname = lastName;
 	}
 	public int getAge() {
 		return age;
@@ -79,15 +81,13 @@ public class UserDTO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public Rol getRol() {
+
+	public int getIdRol() {
 		return rol;
 	}
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
-	
 
-	
-	
-	
+	public void setIdRol(int idRol) {
+		this.rol = idRol;
+	}
+
 }

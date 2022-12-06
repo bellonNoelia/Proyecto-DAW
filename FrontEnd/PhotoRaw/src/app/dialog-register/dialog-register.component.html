@@ -60,9 +60,9 @@
         </button>
       </mat-form-field>
       <br>
-      <mat-radio-group>
-        <mat-radio-button value="fotografo" [(ngModel)]="data.rol">Fotógrafo</mat-radio-button>
-        <mat-radio-button value="usuario" [(ngModel)]="data.rol">Usuario</mat-radio-button>
+      <mat-radio-group [(ngModel)]="data.rol" [ngModelOptions]="{standalone: true}">
+        <mat-radio-button  value=1>Fotógrafo</mat-radio-button>
+        <mat-radio-button  value=2>Usuario</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
 

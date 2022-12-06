@@ -31,13 +31,14 @@ public class UserEntity implements Serializable {
 	private String email;
 	@Column(name = "user_password")
 	private String pwd;
-	@ManyToOne
-	private RolEntity rol;
-
+//	@ManyToOne
+//	private RolEntity rol;
+	@Column(name = "rol_id")
+	private int idRol;
 
 
 	public UserEntity(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd,
-			RolEntity rol) {
+			int idRol) {
 		super();
 		this.id = id;
 		this.avatar = avatar;
@@ -46,7 +47,7 @@ public class UserEntity implements Serializable {
 		this.age = age;
 		this.email = email;
 		this.pwd = pwd;
-		this.rol = rol;
+		this.idRol = idRol;
 	}
 
 	public UserEntity() {
@@ -54,11 +55,11 @@ public class UserEntity implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -110,13 +111,12 @@ public class UserEntity implements Serializable {
 		this.pwd = pwd;
 	}
 
-	public RolEntity getRol() {
-		return rol;
+	public int getIdRol() {
+		return idRol;
 	}
 
-	public void setRol(RolEntity rol) {
-		this.rol = rol;
+	public void setIdRol(int idRol) {
+		this.idRol = idRol;
 	}
 	
-
 }

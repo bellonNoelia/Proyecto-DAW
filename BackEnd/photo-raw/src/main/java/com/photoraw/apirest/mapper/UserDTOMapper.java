@@ -12,14 +12,14 @@ public class UserDTOMapper {
 			return null;
 		}
 			return new User(
-					dto.getId(), 
+					dto.getId(),
 					dto.getAvatar(), 
 					dto.getFirstName(), 
 					dto.getLastName(), 
 					dto.getAge(), 
 					dto.getEmail(), 
 					dto.getPwd(), 
-					toRol(dto.getRol()));
+					dto.getIdRol());
 	}
 	
 	public Rol toRol(Rol rol) {
