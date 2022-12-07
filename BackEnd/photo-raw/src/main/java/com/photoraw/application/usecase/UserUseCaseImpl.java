@@ -1,6 +1,6 @@
 package com.photoraw.application.usecase;
 
-import java.util.Base64;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,5 +29,13 @@ public class UserUseCaseImpl implements UserUseCase {
 		}		
 		return tokenUseCase.generateToken(usuario);
 	}
+
+	@Override
+	public List<User> listadoArtistas() {
+
+		return userRepository.listadoArtistas(1);
+	}
+
+	
 
 }

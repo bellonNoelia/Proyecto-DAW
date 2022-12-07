@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.photoraw.domain.entity.User;
 import com.photoraw.domain.repository.RegisterRepository;
+import com.photoraw.infrastructure.entities.UserEntity;
 import com.photoraw.infrastructure.mapper.UserMapper;
 import com.photoraw.infrastructure.repository.execute.UserCrudRepository;
 
@@ -19,8 +20,7 @@ public class RegisterRepositoryImpl implements RegisterRepository {
 	
 	@Override
 	public User register(User usuario) {
-		crud.save(userMapper.toUserEntity(usuario));
-		return usuario;
+		return userMapper.toUser(crud.save(userMapper.toUserEntity(usuario)));
 }
 
 }

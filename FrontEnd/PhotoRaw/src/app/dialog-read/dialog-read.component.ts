@@ -1,8 +1,8 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PHOTOS } from 'collection-photo';
-import { Artist} from '../model/artist';
-import { ArtistService } from '../artists/artist.service';
+import { User} from '../model/user';
+import { Service } from '../service/service.service';
 @Component({
   selector: 'app-dialog-read',
   templateUrl: './dialog-read.component.html',
@@ -10,16 +10,19 @@ import { ArtistService } from '../artists/artist.service';
 })
 export class DialogReadComponent implements OnInit {
   photos = PHOTOS;
-  artists: Artist[];
+  artists: User[];
   constructor(public dialogRef: MatDialogRef<DialogReadComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public message:string,private artistService: ArtistService) { }
+    public message:string,public service:Service) { }
 
-  ngOnInit(): void {
-    this.artistService
-    .getArtistas()
-    .subscribe((artists) => (this.artists = artists));
-  }
+    ngOnInit(): void {
+      this.getArtists();
+      }
+      private getArtists(){
+        this.service.getArtists().subscribe(data => {
+          this.artists = data;
+        });
+      }
   close() {
     this.dialogRef.close();
   }

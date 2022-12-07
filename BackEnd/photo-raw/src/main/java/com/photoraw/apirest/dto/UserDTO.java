@@ -1,7 +1,6 @@
 package com.photoraw.apirest.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.photoraw.domain.entity.Rol;
 
 public class UserDTO {
 

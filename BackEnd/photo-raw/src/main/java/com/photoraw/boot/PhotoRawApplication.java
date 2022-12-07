@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan("com.photoraw")
-@EnableJpaRepositories("com.photoraw.infrastructure.respository.execute")
+@EnableJpaRepositories("com.photoraw.infrastructure.repository.execute")
 @EntityScan("com.photoraw.infrastructure.entities")
 @MapperScan("com.photoraw.infrastructure.mapper")
 public class PhotoRawApplication {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserService } from '../service/user.service';
+import { Service } from '../service/service.service';
 import { User } from '../model/user';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogRegisterComponent } from '../dialog-register/dialog-register.component';
@@ -16,7 +16,7 @@ export class DialogLoginComponent implements OnInit {
   hide = true;
   constructor(
     public dialog: MatDialog,
-    public userService: UserService,
+    public service:Service,
     public dialogRef: MatDialogRef<DialogLoginComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: User
@@ -25,7 +25,7 @@ export class DialogLoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login(user: User) {
-    this.userService.login(user).subscribe({
+    this.service.login(user).subscribe({
       next: (data: any) => {
         console.log(data.token)
         this.close();

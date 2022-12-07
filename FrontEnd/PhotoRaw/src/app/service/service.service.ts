@@ -7,12 +7,13 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 
-export class UserService {
+export class Service {
 
   constructor(private http: HttpClient) {}
 
   private urlApi = 'http://localhost:8080/api/login'
   private urlApiRegister = 'http://localhost:8080/api/register'
+  private urlApiListado = 'http://localhost:8080/api/user/artists'
 
   public login(user: User):Observable<String>{
       const body = JSON.stringify(user);
@@ -28,4 +29,9 @@ export class UserService {
       return this.http.post(`${this.urlApiRegister}`,body, {'headers': header})
 
   }
+
+  public getArtists(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlApiListado}`);
+
+}
 }

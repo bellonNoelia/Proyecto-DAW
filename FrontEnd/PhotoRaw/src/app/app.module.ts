@@ -17,9 +17,8 @@ import { PhotosComponent } from './photos/photos.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
-
+import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 //Servicios
-import { ArtistService } from './artists/artist.service';
 
 //Angular material
 import {MatToolbarModule } from '@angular/material/toolbar';
@@ -40,7 +39,7 @@ import {MatRadioModule} from '@angular/material/radio';
 
 //Módulos
 import { RoutingModule } from './routing/routing.module';
-import { DialogCreateComponent } from './dialog-create/dialog-create.component';
+
 
 
 
@@ -85,7 +84,7 @@ import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 
 
   ],
-  providers: [ArtistService],
+  providers: [],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

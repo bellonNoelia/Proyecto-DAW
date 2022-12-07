@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 //Objetos
-import { Artist } from '../model/artist';
-import { ArtistService } from './artist.service';
+import { User} from '../model/user';
+import { Service } from '../service/service.service';
 @Component({
   selector: 'app-artists',
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css'],
 })
 export class ArtistsComponent implements OnInit {
-  artists: Artist[];
+  artists: User[];
 
-  constructor(private artistService: ArtistService) {}
+  constructor(public service:Service) {}
 
   ngOnInit(): void {
-    this.artistService
-      .getArtistas()
-      .subscribe((artists) => (this.artists = artists));
+    this.getArtists()
+  }
+  private getArtists(){
+    this.service.getArtists().subscribe(data => {
+      this.artists = data;
+    });
   }
 }
