@@ -17,8 +17,19 @@ CREATE TABLE IF NOT EXISTS rol (
 INSERT INTO rol 
 VALUES (1,'Fotógrafo'),
 (2,'Cliente');
+
+-- -----------------------------------------------------
+-- Table IMAGEN
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS img (
+id INT auto_increment NOT NULL PRIMARY KEY,
+img blob NOT NULL);
+INSERT into img
+VALUES(1,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/1.png'));
+
 -- -----------------------------------------------------
 -- Table USUARIO
+DROP TABLE user;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS user (
   id INT auto_increment NOT NULL PRIMARY KEY,
@@ -33,7 +44,8 @@ CREATE TABLE IF NOT EXISTS user (
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
  );
-
+INSERT INTO user
+VALUES(5,load_file("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/1.png"),"Sofía","Soto","12345","sofias@gmail.com",36,1);
 
 -- -----------------------------------------------------
 -- Table CATEGORIA

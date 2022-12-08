@@ -18,6 +18,7 @@ export class ArtistsComponent implements OnInit {
   private getArtists(){
     this.service.getArtists().subscribe(data => {
       this.artists = data;
+
     });
   }
 }

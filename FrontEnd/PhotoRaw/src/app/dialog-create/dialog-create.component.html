@@ -1,79 +1,62 @@
-<div class="container" >
+<div class="container">
   <button class="close" mat-icon-button (click)="close()">
     <mat-icon>close</mat-icon>
   </button>
-  <form>
+  <form method="get">
     <mat-card-header class="header">
       <mat-card-title>Añadir producto</mat-card-title>
     </mat-card-header>
     <mat-card-content class="form">
       <mat-form-field appearance="fill">
         <mat-label>Título</mat-label>
-        <input
-          matInput
-          placeholder="Título"
-          name="title"
-          ngModel
-          required
-        />
+        <input matInput placeholder="Título" name="title" [(ngModel)]="data.title" required />
       </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Precio</mat-label>
-          <input
-            matInput
-            placeholder="precio"
-            name="price"
-            type="number"
-            ngModel
-            required
-          />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Precios</mat-label>
-          <select matNativeControl required>
-            <option value="13x18">13x18 cm</option>
-            <option value="21x30">21x30 cm</option>
-            <option value="30x40">30x40 cm</option>
-            <option value="40x50">40x50 cm</option>
-            <option value="50x70">50x70 cm</option>
-          </select>
-
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Medidas</mat-label>
-          <select matNativeControl required>
-            <option value="13x18">13x18 cm</option>
-            <option value="21x30">21x30 cm</option>
-            <option value="30x40">30x40 cm</option>
-            <option value="40x50">40x50 cm</option>
-            <option value="50x70">50x70 cm</option>
-          </select>
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Categoría</mat-label>
+        <select matNativeControl [(ngModel)]="data.idCategory" [ngModelOptions]="{standalone: true}" required>
+          <option value=1>Artística</option>
+          <option value=2>Arquitectura</option>
+          <option value=3>Autor</option>
+          <option value=4>Retrato</option>
+          <option value=5>Surrealista</option>
+          <option value=6>Paisajes</option>
+          <option value=7>Aérea</option>
+          <option value=8>Deportes</option>
+          <option value=9>Abstracta</option>
+          <option value=10>Gastronómica</option>
+          <option value=11>Naturaleza</option>
+          <option value=12>Animales</option>
+          <option value=13>Macrogotografía</option>
+          <option value=14>Moda</option>
+          <option value=15>Viajes</option>
+        </select>
+      </mat-form-field>
 
       <mat-form-field appearance="fill">
-      <mat-label>Subir imagen</mat-label>
-			<button mat-icon-button matPrefix >
-        <mat-icon>attach_file</mat-icon>
-      </button>
-			<input type="text" readonly matInput />
-			<input
-        type="file"
-        hidden
-        required
-      />
-		</mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input matInput placeholder="Precio" name="price" type="number" [(ngModel)]="data.price" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Medida</mat-label>
+        <input matInput placeholder="Medidas" name="size" type="text" [(ngModel)]="data.size" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Subir imagen</mat-label>
+        <button mat-icon-button matPrefix>
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input type="text" readonly matInput [(ngModel)]="data.img"/>
+        <input type="file" hidden required />
+      </mat-form-field>
 
 
     </mat-card-content>
 
     <mat-card-actions class="btn">
-      <button
-        mat-stroked-button
-        color="primary"
-        class="btn-block"
-        type="submit"
-      >
+      <button mat-stroked-button color="primary" class="btn-block" (click)="createPhoto(data)" type="submit">
         Añadir
       </button>
     </mat-card-actions>

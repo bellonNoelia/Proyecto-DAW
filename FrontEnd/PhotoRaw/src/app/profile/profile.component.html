@@ -1,7 +1,7 @@
 <body>
  <div class="artist">
-<!--
-    <img  src="{{ artists[1].img }}" /> -->
+
+    <img   [src]="imgData" />
     <p>{{ artists[1].firstname }}  {{ artists[1].lastname }} <button mat-icon-button (click)="openDialogCreate()">
       <mat-icon aria-label="label">library_add</mat-icon>
     </button></p>
@@ -12,7 +12,7 @@
     <mat-grid-tile *ngFor="let photo of photos">
 
       <mat-card class="container">
-        <img mat-card-md-image src="{{photo.img}}" >
+        <img mat-card-md-image  [src]="imgData" >
         <br>
         <mat-card-content class="info">
 
@@ -20,7 +20,7 @@
           <p>Desde {{ photo.price }} €</p>
 
         </mat-card-content>
-           <!-- <img src="{{photo.img}}" width="50%" height="50%"/> -->
+           <img [src]="imgData" width="50%" height="50%"/>
 
 
         <mat-card-actions class="btn">

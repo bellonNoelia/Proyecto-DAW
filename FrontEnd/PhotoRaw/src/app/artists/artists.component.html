@@ -4,10 +4,10 @@
       <mat-card class="container">
         <mat-card-header class="hcontainer">
           <div mat-card-avatar class="avatar">
-            <!-- <img mat-card-image src="{{ artist.img }}" /> -->
+             <img mat-card-image src="data:image/png;base64,{{artist.img}}"/>
           </div>
           <div class="title">
-            <mat-card-title >{{ artist.firstname }} {{ artists[1].lastname }}</mat-card-title>
+            <mat-card-title >{{ artist.firstname }} {{artist.lastname}}</mat-card-title>
             <mat-card-subtitle >sub-header</mat-card-subtitle>
           </div>
         </mat-card-header>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PHOTOS } from 'collection-photo';
+import { Photo} from '../model/photo';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogReadComponent } from '../dialog-read/dialog-read.component';
 @Component({
@@ -8,12 +8,12 @@ import { DialogReadComponent } from '../dialog-read/dialog-read.component';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  photos=PHOTOS;
+  photos=Photo;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
   openDialogRead() {
-    const dialogRef = this.dialog.open(DialogReadComponent, {});
+    const dialogRef = this.dialog.open(DialogReadComponent, { data: new Object});
   }
 }
