@@ -1,6 +1,7 @@
 package com.photoraw.apirest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,13 +17,15 @@ import com.photoraw.domain.usecase.ImgUseCase;
 @RequestMapping("api/img")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ImgController {
-@Autowired 
-private ImgUseCase imgUseCase;
-@Autowired
-private ImgDTOMapper imgDTOMapper;
-@GetMapping("{idPhoto}")
-public ResponseEntity<ImgDTO> find(@PathVariable("idPhoto") int idPhoto) {
- ImgDTO result=imgDTOMapper.toImgDTO(imgUseCase.find(idPhoto));
-	return ResponseEntity.ok().body(result);
-}
+	@Autowired
+	private ImgUseCase imgUseCase;
+	@Autowired
+	private ImgDTOMapper imgDTOMapper;
+
+	@GetMapping("{idPhoto}")
+	public ResponseEntity<byte[]> find(@PathVariable("idPhoto") int idPhoto) {
+		ImgDTO result = imgDTOMapper.toImgDTO(imgUseCase.find(idPhoto));
+		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(result.getImg());
+	}
+	
 }

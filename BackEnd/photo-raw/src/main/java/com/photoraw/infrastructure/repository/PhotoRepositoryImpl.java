@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.photoraw.domain.entity.Img;
 import com.photoraw.domain.entity.Photo;
 import com.photoraw.domain.repository.PhotoRepository;
+import com.photoraw.domain.usecase.ImgUseCase;
 import com.photoraw.infrastructure.mapper.PhotoMapper;
 import com.photoraw.infrastructure.repository.execute.PhotoCrudRepository;
 
@@ -36,12 +38,7 @@ public class PhotoRepositoryImpl implements PhotoRepository{
 
 	@Override
 	public void createPhoto(Photo photo) {
-			//crud.save(photoMapper.toPhotoEntity(photo));
+		crud.save(photoMapper.toPhotoEntity(photo));
 	}
 
-	@Override
-	public void updatePhoto(Integer idPhoto) {
-		//TODO tiene que recibir toda la Photo no solo el ID
-		//crud.save(photoMapper.toPhotoEntity(photo))
-	}
 }

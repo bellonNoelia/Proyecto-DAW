@@ -14,7 +14,7 @@ public class Rol {
 	}
 	public Rol() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public int getId() {
 		return id;

@@ -2,7 +2,7 @@
 -- Tue Sep 27 18:17:30 2022
 
 -- -----------------------------------------------------
- -- DROP DATABASE photoraw;
+-- DROP DATABASE photoraw;
 CREATE DATABASE IF NOT EXISTS photoraw;
 USE photoraw;
 
@@ -21,31 +21,40 @@ VALUES (1,'Fotógrafo'),
 -- -----------------------------------------------------
 -- Table IMAGEN
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS img (
 id INT auto_increment NOT NULL PRIMARY KEY,
-img blob NOT NULL);
+img mediumblob NOT NULL);
+
 INSERT into img
-VALUES(1,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/1.png'));
+VALUES(1,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/1.png')),
+(2,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/2.png')),
+(3,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/3.png')),
+(4,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/4.png')),
+(5,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/5.jpeg')),
+(6,LOAD_FILE('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/6.png'));
 
 -- -----------------------------------------------------
 -- Table USUARIO
-DROP TABLE user;
+--DROP TABLE user;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS user (
   id INT auto_increment NOT NULL PRIMARY KEY,
-  avatar blob ,
   user_name VARCHAR(45) NOT NULL,
   user_lastname VARCHAR(45) NOT NULL,
   user_password VARCHAR(45) NOT NULL,
   user_email VARCHAR(45) NOT NULL unique,
   user_age INT NOT NULL,
   rol_id INT NOT NULL,
+  img_id INT NOT NULL,
   CONSTRAINT fk_user_rol FOREIGN KEY (rol_id) REFERENCES rol (id) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION,
+  CONSTRAINT fk_img_id FOREIGN KEY (img_id) REFERENCES img (id) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
  );
-INSERT INTO user
-VALUES(5,load_file("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/avatar/1.png"),"Sofía","Soto","12345","sofias@gmail.com",36,1);
+
 
 -- -----------------------------------------------------
 -- Table CATEGORIA
@@ -82,15 +91,19 @@ CREATE TABLE IF NOT EXISTS photo (
   photo_name VARCHAR(45) NOT NULL,
   photo_price VARCHAR(45) NOT NULL,
   photo_size VARCHAR(45) NULL,
-  photo BLOB NOT NULL,
+  id_img INT NOT NULL,
   user_id INT NOT NULL,
   category_id INT NOT NULL,
-  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user (id) 
+  CONSTRAINT fk_id_img FOREIGN KEY (id_img) REFERENCES img (id) 
   ON UPDATE CASCADE
   ON DELETE CASCADE,
+  CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user (id) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION,
   CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES category (id) 
-  ON UPDATE CASCADE
-  ON DELETE CASCADE
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+  
  );
 
 -- -----------------------------------------------------

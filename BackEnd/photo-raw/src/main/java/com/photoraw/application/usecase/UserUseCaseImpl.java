@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.photoraw.domain.commons.TokenException;
 import com.photoraw.domain.entity.User;
 import com.photoraw.domain.repository.UserRepository;
 import com.photoraw.domain.usecase.TokenUseCase;
@@ -31,8 +32,8 @@ public class UserUseCaseImpl implements UserUseCase {
 	}
 
 	@Override
-	public List<User> listadoArtistas() {
-
+	public List<User> listadoArtistas(String token) throws TokenException {
+		this.tokenUseCase.getUserByToken(token);
 		return userRepository.listadoArtistas(1);
 	}
 

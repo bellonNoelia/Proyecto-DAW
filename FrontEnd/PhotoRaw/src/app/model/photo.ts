@@ -3,7 +3,9 @@ export class Photo{
   title:string;
   price:number;
   size:string;
-  img:string;
+  imgId:number;
   idArtist:number;
   idCategory:number;
+  infoPhotobase64: string;
+  idPhoto: number;
 }

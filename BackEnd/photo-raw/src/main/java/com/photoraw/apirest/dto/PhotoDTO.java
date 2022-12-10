@@ -12,24 +12,28 @@ public class PhotoDTO {
 	@JsonProperty
 	private String size;
 	@JsonProperty
-	private byte[] photo;
+	private Integer idPhoto;
+	@JsonProperty
+	private String infoPhotobase64;
 	@JsonProperty
 	private int idUser;
 	@JsonProperty
 	private int idCategory;
+	
 	public PhotoDTO() {
 		super();
-		// TODO Auto-generated constructor stub
+	
 	}
-	public PhotoDTO(Integer id, String title, String price, String size, byte[] photo, int idUser, int idCategory) {
+	public PhotoDTO(Integer id, String title, String price, String size, int idUser, int idCategory, Integer idPhoto, String infoPhotobase64) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.price = price;
 		this.size = size;
-		this.photo = photo;
 		this.idUser = idUser;
 		this.idCategory = idCategory;
+		this.idPhoto = idPhoto;
+		this.infoPhotobase64 = infoPhotobase64;
 	}
 	public Integer getId() {
 		return id;
@@ -55,12 +59,6 @@ public class PhotoDTO {
 	public void setSize(String size) {
 		this.size = size;
 	}
-	public byte[] getPhoto() {
-		return photo;
-	}
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
 	public int getIdUser() {
 		return idUser;
 	}
@@ -73,5 +71,18 @@ public class PhotoDTO {
 	public void setIdCategory(int idCategory) {
 		this.idCategory = idCategory;
 	}
+	public Integer getIdPhoto() {
+		return idPhoto;
+	}
+	public void setIdPhoto(Integer idPhoto) {
+		this.idPhoto = idPhoto;
+	}
+	public String getInfoPhotobase64() {
+		return infoPhotobase64;
+	}
+	public void setInfoPhotobase64(String infoPhotobase64) {
+		this.infoPhotobase64 = infoPhotobase64;
+	}
+	
 	
 }

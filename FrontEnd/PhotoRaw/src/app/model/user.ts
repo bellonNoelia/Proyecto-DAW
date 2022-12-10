@@ -1,6 +1,6 @@
 export class User {
   id:number;
-  img:string;
+  avatarId:number;
   firstname:string;
   lastname:string;
   age:number;

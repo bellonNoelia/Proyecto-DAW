@@ -27,9 +27,10 @@ default Photo toPhoto(PhotoEntity entity) {
 			entity.getTitle(),
 			entity.getPrice(),
 			entity.getSize(),
-			entity.getPhoto(),
 			entity.getIdUser(),
-			entity.getIdCategory());
+			entity.getIdCategory(),
+			entity.getIdPhoto(),
+			null);
 }
 
 default PhotoEntity toPhotoEntity(Photo photo) {
@@ -38,7 +39,7 @@ default PhotoEntity toPhotoEntity(Photo photo) {
 			photo.getTitle(),
 			photo.getPrice(),
 			photo.getSize(),
-			photo.getPhoto(),
+			photo.getIdPhoto(),
 			photo.getIdUser(),
 			photo.getIdCategory());
 			

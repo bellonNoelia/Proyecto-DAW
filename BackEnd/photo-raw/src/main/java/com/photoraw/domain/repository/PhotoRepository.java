@@ -10,8 +10,6 @@ public interface PhotoRepository {
 
 	void deletePhoto(Integer idPhoto);
 
-	void updatePhoto(Integer idPhoto);
-
 	void createPhoto(Photo photo);
 
 	void updatePhoto(Photo photo);

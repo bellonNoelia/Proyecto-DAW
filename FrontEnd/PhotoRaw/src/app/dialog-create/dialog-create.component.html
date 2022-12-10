@@ -43,13 +43,16 @@
         <input matInput placeholder="Medidas" name="size" type="text" [(ngModel)]="data.size" required />
       </mat-form-field>
 
+
+
       <mat-form-field appearance="fill">
         <mat-label>Subir imagen</mat-label>
-        <button mat-icon-button matPrefix>
+        <button (click)="file.click()" mat-icon-button matPrefix>
           <mat-icon>attach_file</mat-icon>
         </button>
-        <input type="text" readonly matInput [(ngModel)]="data.img"/>
-        <input type="file" hidden required />
+        <input class="file" type="text" readonly matInput />
+        <input class="file" type="file"  accept="image/*" #file (change)="onChange($event)"  required />
+
       </mat-form-field>
 
 

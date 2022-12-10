@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.photoraw.domain.entity.Img;
 import com.photoraw.domain.repository.ImgRepository;
+import com.photoraw.infrastructure.entities.ImgEntity;
 import com.photoraw.infrastructure.mapper.ImgMapper;
 import com.photoraw.infrastructure.repository.execute.ImgCrudRepository;
 
@@ -20,6 +21,13 @@ public class ImgRepositoryImpl implements ImgRepository {
 
 	@Override
 	public Img find(int id) {
-		return imgMapper.toImg(crud.findById(1));
+		ImgEntity findById = crud.findById(id);
+		return imgMapper.toImg(findById);
+	}
+
+	@Override
+	public Integer save(Img img) {
+		ImgEntity savedEntity = crud.save(imgMapper.toImgEntity(img));
+		return savedEntity != null ? savedEntity.getId() : null;
 	}
 }

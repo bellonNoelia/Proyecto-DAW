@@ -9,12 +9,17 @@ import com.photoraw.domain.usecase.ImgUseCase;
 
 @Component
 public class ImgUseCaseImpl implements ImgUseCase {
-@Autowired
+	
+	@Autowired
+	private ImgRepository imgRepository;
 
-private ImgRepository imgRepository;
+	@Override
+	public Img find(int id) {
+		return imgRepository.find(id);
+	}
 
-@Override
-public Img find(int id) {
-	return imgRepository.find(id);
-}
+	@Override
+	public Integer save(Img img) {
+		return imgRepository.save(img);
+	}
 }

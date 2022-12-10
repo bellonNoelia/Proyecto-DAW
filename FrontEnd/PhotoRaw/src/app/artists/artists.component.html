@@ -1,14 +1,14 @@
 <body>
-  <mat-grid-list cols="4" rowHeight="2:1" *ngIf="artists"  >
+  <mat-grid-list cols="4" rowHeight="2:1" *ngIf="artists">
     <mat-grid-tile *ngFor="let artist of artists">
       <mat-card class="container">
         <mat-card-header class="hcontainer">
           <div mat-card-avatar class="avatar">
-             <img mat-card-image src="data:image/png;base64,{{artist.img}}"/>
+            <img mat-card-image src="http://localhost:8080/api/img/{{artist.avatarId}}" />
           </div>
           <div class="title">
-            <mat-card-title >{{ artist.firstname }} {{artist.lastname}}</mat-card-title>
-            <mat-card-subtitle >sub-header</mat-card-subtitle>
+            <mat-card-title>{{ artist.firstname }} {{artist.lastname}}</mat-card-title>
+            <mat-card-subtitle>Fotógrafo</mat-card-subtitle>
           </div>
         </mat-card-header>
         <mat-card-actions class="button-container">

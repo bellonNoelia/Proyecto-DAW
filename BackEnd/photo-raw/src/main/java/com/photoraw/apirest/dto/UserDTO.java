@@ -7,7 +7,7 @@ public class UserDTO {
 	@JsonProperty
 	private Integer id;
 	@JsonProperty
-	private byte[] avatar;
+	private int avatarId;
 	@JsonProperty
 	private String firstname;
 	@JsonProperty
@@ -23,14 +23,14 @@ public class UserDTO {
 	
 	public UserDTO() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	
-	public UserDTO(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd,
+	public UserDTO(Integer id, int avatarId, String firstName, String lastName, int age, String email, String pwd,
 			int idRol) {
 		super();
 		this.id = id;
-		this.avatar = avatar;
+		this.avatarId = avatarId;
 		this.firstname = firstName;
 		this.lastname = lastName;
 		this.age = age;
@@ -44,11 +44,11 @@ public class UserDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public byte[] getAvatar() {
-		return avatar;
+	public int getAvatar() {
+		return avatarId;
 	}
-	public void setAvatar(byte[] avatar) {
-		this.avatar = avatar;
+	public void setAvatar(int avatar) {
+		this.avatarId = avatar;
 	}
 	public String getFirstName() {
 		return firstname;

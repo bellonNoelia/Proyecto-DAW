@@ -15,7 +15,7 @@ public class RolEntity {
 	private String rol;
 	public RolEntity() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public RolEntity(int id, String rol) {
 		super();

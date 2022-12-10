@@ -1,17 +1,21 @@
 package com.photoraw.domain.entity;
 
 public class Img {
+	
 	private Integer id;
+	
 	private byte[] img;
+	
+	public Img() {
+		super();	
+	}
+	
 	public Img(Integer id, byte[] img) {
 		super();
 		this.id = id;
 		this.img = img;
 	}
-	public Img() {
-		super();
-		
-	}
+	
 	public Integer getId() {
 		return id;
 	}

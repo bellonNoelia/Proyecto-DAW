@@ -3,7 +3,7 @@ package com.photoraw.domain.entity;
 public class User {
 
 	private Integer id;
-	private byte[] avatar;
+	private int avatarId;
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -15,10 +15,10 @@ public class User {
 		super();
 	}
 
-	public User(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd, int rol) {
+	public User(Integer id, int avatarId, String firstName, String lastName, int age, String email, String pwd, int rol) {
 		super();
 		this.id = id;
-		this.avatar = avatar;
+		this.avatarId = avatarId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -35,12 +35,12 @@ public class User {
 		this.id = id;
 	}
 
-	public byte[] getAvatar() {
-		return avatar;
+	public int getAvatar() {
+		return avatarId;
 	}
 
-	public void setAvatar(byte[] avatar) {
-		this.avatar = avatar;
+	public void setAvatar(int avatar) {
+		this.avatarId = avatar;
 	}
 
 	public String getFirstName() {

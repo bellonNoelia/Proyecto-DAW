@@ -2,18 +2,32 @@ package com.photoraw.application.usecase;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.apache.commons.codec.binary.Base64;
 
+import com.photoraw.domain.commons.TokenException;
+import com.photoraw.domain.entity.Img;
 import com.photoraw.domain.entity.Photo;
+import com.photoraw.domain.entity.User;
 import com.photoraw.domain.repository.PhotoRepository;
+import com.photoraw.domain.usecase.ImgUseCase;
 import com.photoraw.domain.usecase.PhotoUseCase;
+import com.photoraw.domain.usecase.TokenUseCase;
 
 @Component
 public class PhotoUseCaseImpl implements PhotoUseCase {
 	
 	@Autowired
 	private PhotoRepository photoRepository;
+	
+	@Autowired
+	private ImgUseCase imgUseCase;
+	
+	@Autowired
+	private TokenUseCase tokenUseCase; 
 
 	@Override
 	public List<Photo> findAllPhotos() {
@@ -31,7 +45,23 @@ public class PhotoUseCaseImpl implements PhotoUseCase {
 	}
 
 	@Override
-	public void createPhoto(Photo photo) {
-		photoRepository.createPhoto(photo);
+	@Transactional
+	public void createPhoto(Photo photo, String token) throws TokenException {
+		String infoPhotobase64 = photo.getInfoPhotobase64();
+		if (infoPhotobase64 != null) {
+			// info Usuario
+			User userByToken = tokenUseCase.getUserByToken(token);
+
+			if (userByToken != null) {
+				photo.setIdUser(userByToken.getId());
+
+				// info imagen
+				byte[] decodedByte = Base64.decodeBase64(infoPhotobase64);
+				Integer savedImg = imgUseCase.save(new Img(null, decodedByte));
+				photo.setIdPhoto(savedImg);
+
+				photoRepository.createPhoto(photo);
+			}
+		}
 	}
 }

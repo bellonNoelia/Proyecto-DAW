@@ -18,8 +18,9 @@ import { DialogRegisterComponent } from './dialog-register/dialog-register.compo
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
 import { DialogCreateComponent } from './dialog-create/dialog-create.component';
-//Servicios
 
+//Servicios
+import { Service } from './service/service.service';
 //Angular material
 import {MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule } from '@angular/material/icon';
@@ -84,7 +85,7 @@ import { RoutingModule } from './routing/routing.module';
 
 
   ],
-  providers: [],
+  providers: [Service],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

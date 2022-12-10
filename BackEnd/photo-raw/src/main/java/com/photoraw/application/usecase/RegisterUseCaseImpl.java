@@ -16,6 +16,8 @@ public class RegisterUseCaseImpl implements RegisterUseCase {
 
 	@Override
 	public User register(User usuario) {
+		int avatar=(int)(Math.random()*6+1);
+		usuario.setAvatar(avatar);
 		return registerRepository.register(usuario);
 	}
 

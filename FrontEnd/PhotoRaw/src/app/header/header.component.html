@@ -1,6 +1,7 @@
 <div class="header">
   <mat-toolbar class="mat-elevation-z6">
     <span><img src="./assets/img/black.png"></span>
+    <div>
     <button mat-button routerLink="/home">Inicio</button>
     <button mat-button routerLink="/artists">Artistas</button>
     <!--Menú productos-->
@@ -11,17 +12,17 @@
       <button mat-menu-item href="">Presets</button>
       <button mat-menu-item href="">Libros</button>
     </mat-menu>
+  </div>
     <!--Barra buscador-->
     <div class="search">
       <mat-icon matPrefix>search</mat-icon>
       <input matInput type="search" placeholder="Buscar" class="search-input">
     </div>
-
-    <!--Componente login-controller-->
-    <div class="login-controller">
-      <app-login-controller></app-login-controller>
+    <div class="logout" *ngIf="isLoging">
+        <button mat-raised-button color="warn" onclick="logout()">Cerrar sesión</button>
     </div>
   </mat-toolbar>
 
 </div>
-<!---->
+
+

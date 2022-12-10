@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../model/user';
 import { Photo } from '../model/photo';
 import { Observable, of } from 'rxjs';
+import { Token } from '../model/token';
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +17,15 @@ export class Service {
   private urlApiRegister = 'http://localhost:8080/api/register'
   private urlApiListado = 'http://localhost:8080/api/user/artists'
   private urlApiPhotos = 'http://localhost:8080/api/photos'
-  private urlApiImg = 'http://localhost:8080/api/img'
 
-  public login(user: User):Observable<String>{
+  public login(user: User):Observable<Token>{
       const body = JSON.stringify(user);
       const header = {'content-type': 'application/json'}
-      return this.http.post<String>(`${this.urlApi}`,
+      return this.http.post<Token>(`${this.urlApi}`,
       body, {'headers': header}
       )
-
   }
+
   public register(user: User):Observable<{}>{
       const header = {'content-type': 'application/json'}
       const body = JSON.stringify(user);
@@ -34,12 +34,8 @@ export class Service {
   }
 
   public getArtists(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlApiListado}`);
-
-}
-public getImg(idImg:number): Observable<User[]>{
-  return this.http.get<User[]>(`${this.urlApiImg}/${idImg}`);
-
+    return this.http.get<User[]>(`${this.urlApiListado}`,{
+      headers: this.getHeader()});
 }
 
 public findAll(): Observable<Photo[]> {
@@ -49,17 +45,15 @@ public findAll(): Observable<Photo[]> {
 }
 
 public updatePhoto (Photo: Photo): Observable<{}>{
-  const headers = { 'content-type': 'application/json'}
   const body=JSON.stringify(Photo);
   console.log(body)
-  return this.http.post(`${this.urlApiPhotos}/updatePhoto`, body,{'headers':headers})
+  return this.http.post(`${this.urlApiPhotos}/updatePhoto`, body,{'headers':this.getHeader()})
 }
 
-public createPhoto (Photo: Photo): Observable<{}>{
-  const headers = { 'content-type': 'application/json'}
-  const body=JSON.stringify(Photo);
+public createPhoto (photo: Photo): Observable<{}>{
+  const body=JSON.stringify(photo);
   console.log(body)
-  return this.http.post(`${this.urlApiPhotos}/createPhoto`, body,{'headers':headers})
+  return this.http.post(`${this.urlApiPhotos}/createPhoto`, body,{'headers':this.getHeader()})
 }
 
 public deletePhoto (idPhoto: number): Observable<{}>{
@@ -67,4 +61,9 @@ public deletePhoto (idPhoto: number): Observable<{}>{
     headers: new HttpHeaders().set('Type-content', 'aplication/json')
   });
 }
+
+private getHeader(){
+  return { 'content-type': 'application/json', 'token': localStorage.getItem('token')}
+}
+
 }

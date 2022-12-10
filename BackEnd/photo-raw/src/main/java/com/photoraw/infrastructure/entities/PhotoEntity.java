@@ -27,9 +27,8 @@ public class PhotoEntity implements Serializable {
 	private String price;
 	@Column(name = "photo_size")
 	private String size;
-	@Lob
-	@Column
-	private byte[] photo;
+	@Column (name = "id_img")
+	private int idPhoto;
 	@Column(name = "user_id ")
 	private int idUser;
 	@Column(name = "category_id ")
@@ -37,16 +36,16 @@ public class PhotoEntity implements Serializable {
 
 	public PhotoEntity() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public PhotoEntity(Integer id, String title, String price, String size, byte[] photo, int idUser, int idCategory) {
+	public PhotoEntity(Integer id, String title, String price, String size, int idPhoto, int idUser, int idCategory) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.price = price;
 		this.size = size;
-		this.photo = photo;
+		this.idPhoto = idPhoto;
 		this.idUser = idUser;
 		this.idCategory = idCategory;
 	}
@@ -83,12 +82,12 @@ public class PhotoEntity implements Serializable {
 		this.size = size;
 	}
 
-	public byte[] getPhoto() {
-		return photo;
+	public int getIdPhoto() {
+		return idPhoto;
 	}
 
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
+	public void setIdPhoto(int photo) {
+		this.idPhoto = photo;
 	}
 
 	public int getIdUser() {

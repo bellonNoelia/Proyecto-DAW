@@ -1,8 +1,13 @@
-body{
+body {
   background-image: url(/assets/img/fondo.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   height: calc(100vh - 5em - 3em);
-  opacity: 0.7;
+
+}
+.login-controller {
+  padding-top: 15em;
+  display: flex;
+  justify-content: center;
 }

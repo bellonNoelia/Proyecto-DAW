@@ -19,9 +19,8 @@ public class UserEntity implements Serializable {
     @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-    @Lob
-	@Column
-	private byte[] avatar;
+   	@Column (name = "img_id")
+	private int avatar;
 	@Column(name = "user_name")
 	private String firstName;
 	@Column(name = "user_lastname")
@@ -38,11 +37,11 @@ public class UserEntity implements Serializable {
 	private int idRol;
 
 
-	public UserEntity(Integer id, byte[] avatar, String firstName, String lastName, int age, String email, String pwd,
+	public UserEntity(Integer id, int avatarId, String firstName, String lastName, int age, String email, String pwd,
 			int idRol) {
 		super();
 		this.id = id;
-		this.avatar = avatar;
+		this.avatar = avatarId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
@@ -53,7 +52,7 @@ public class UserEntity implements Serializable {
 
 	public UserEntity() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Integer getId() {
@@ -64,11 +63,11 @@ public class UserEntity implements Serializable {
 		this.id = id;
 	}
 
-	public byte[] getAvatar() {
+	public int getAvatar() {
 		return avatar;
 	}
 
-	public void setAvatar(byte[] avatar) {
+	public void setAvatar(int avatar) {
 		this.avatar = avatar;
 	}
 

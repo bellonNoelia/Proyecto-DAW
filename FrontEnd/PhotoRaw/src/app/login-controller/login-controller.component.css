@@ -1,9 +1,6 @@
 .login{
   color:#ffffff;
-  background-color: #8d8d8d;
-}
-.register{
-  color:#ffffff;
-  background-color: #4d82cb;
-  margin-left:0.5rem;
+  font-size: 1.2em;
+  height: 2em;
+  width: 5em;
 }

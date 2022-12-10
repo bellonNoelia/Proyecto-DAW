@@ -16,9 +16,42 @@ export class ArtistsComponent implements OnInit {
     this.getArtists()
   }
   private getArtists(){
+
+
     this.service.getArtists().subscribe(data => {
       this.artists = data;
 
     });
+
+    this.service.getArtists().subscribe({
+      next:(data => {
+        this.artists = data;
+      }),
+      error:(error) =>{
+        this.matchError(error.status)
+
+      }
+    });
   }
+
+  // TODO mover a otra clase
+private matchError(statusCode){
+  switch(statusCode) {
+    case 401: {
+      localStorage.removeItem("token")
+      location.reload();
+       break;
+    }
+    case 403: {
+      localStorage.removeItem("token")
+      location.reload();
+       break;
+    }
+    default: {
+       //statements;
+       break;
+    }
+  }
+}
+
 }

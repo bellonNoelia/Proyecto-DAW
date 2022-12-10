@@ -4,6 +4,7 @@ import { Service } from '../service/service.service';
 import { User } from '../model/user';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogRegisterComponent } from '../dialog-register/dialog-register.component';
+import { Token } from '../model/token';
 
 
 
@@ -26,12 +27,13 @@ export class DialogLoginComponent implements OnInit {
 
   login(user: User) {
     this.service.login(user).subscribe({
-      next: (data: any) => {
-        console.log(data.token)
+      next: (data: Token) => {
+        localStorage.setItem("token", data.token)
         this.close();
       },
       error: (error) => {
         if (error.status == 500) {
+          localStorage.clear();
           alert('Error al realizar el loging');
         }
       },
