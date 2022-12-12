@@ -32,8 +32,9 @@ public class PhotoDTOMapper {
 				dto.getSize(), 
 				dto.getIdArtist(),
 				dto.getIdCategory(),
-				null,
-				dto.getInfoPhotobase64().split(",")[1]);
+				dto.getIdPhoto() != null ?dto.getIdPhoto(): null,
+				dto.getInfoPhotobase64() != null ?dto.getInfoPhotobase64().split(",")[1] : null); 
+				
 
 	}
 	public PhotoDTO toPhotoDTO(Photo entity) {
@@ -51,6 +52,6 @@ public class PhotoDTOMapper {
 				null);
 
 	}
-	
+
 	
 }

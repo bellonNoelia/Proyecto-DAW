@@ -9,33 +9,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
 public class UserEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-    @Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-   	@Column (name = "img_id")
+	@Column(name = "img_id")
 	private int avatar;
 	@Column(name = "user_name")
+	@NotNull
+	@NotBlank
 	private String firstName;
 	@Column(name = "user_lastname")
+	@NotNull
+	@NotBlank
 	private String lastName;
 	@Column(name = "user_age")
+	@NotNull
+	@NotBlank
 	private int age;
 	@Column(name = "user_email")
+	@NotNull
+	@NotBlank
 	private String email;
 	@Column(name = "user_password")
+	@NotNull
+	@NotBlank
 	private String pwd;
-//	@ManyToOne
-//	private RolEntity rol;
 	@Column(name = "rol_id")
+	@NotNull
+	@NotBlank
 	private int idRol;
-
 
 	public UserEntity(Integer id, int avatarId, String firstName, String lastName, int age, String email, String pwd,
 			int idRol) {
@@ -118,5 +129,5 @@ public class UserEntity implements Serializable {
 	public void setIdRol(int idRol) {
 		this.idRol = idRol;
 	}
-	
+
 }
