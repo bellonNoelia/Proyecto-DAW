@@ -11,12 +11,12 @@
           <p>Desde {{ photo.price }} €</p>
 
         </mat-card-content>
-           <!-- <img src="{{photo.img}}" width="50%" height="50%"/> -->
+
 
 
         <mat-card-actions class="btn">
           <button mat-icon-button>
-            <mat-icon (click)="openDialogRead()" >visibility</mat-icon>
+            <mat-icon (click)="openDialogRead(photo)" >visibility</mat-icon>
           </button>
           <button mat-icon-button>
             <mat-icon >add_shopping_cart</mat-icon>

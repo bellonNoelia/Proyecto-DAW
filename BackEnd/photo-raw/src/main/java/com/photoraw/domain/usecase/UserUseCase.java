@@ -11,4 +11,7 @@ public interface UserUseCase {
 	
 	List <User> listadoArtistas(String token) throws TokenException;
 	
+	User usuarioLogado (String token) throws TokenException;
+
+	User getArtist(String token, Integer idArtista) throws TokenException;
 }

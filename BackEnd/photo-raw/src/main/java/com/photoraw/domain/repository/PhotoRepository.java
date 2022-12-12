@@ -8,6 +8,10 @@ public interface PhotoRepository {
 	
 	List<Photo> findAllPhotos();
 
+	List<Photo> findPhotosByUser(Integer idUser);
+	
+	Photo readPhoto(Integer idPhoto);
+	
 	void deletePhoto(Integer idPhoto);
 
 	void createPhoto(Photo photo);

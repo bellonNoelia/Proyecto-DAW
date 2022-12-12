@@ -8,8 +8,14 @@ body{
   width: 14em;
   height: 14em;
   margin: 3rem,
-
 }
+
+mat-card img{
+  object-fit: cover;
+  width: auto;
+  height: 60%;
+}
+
 .info{
   display:block;
   margin:auto;

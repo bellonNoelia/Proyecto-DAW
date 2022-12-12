@@ -1,7 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Photo} from '../model/photo';
-import { User} from '../model/user';
 import { Img} from '../model/img';
 import { Service } from '../service/service.service';
 @Component({
@@ -19,6 +18,7 @@ imgBase64 :string;
 
   ngOnInit(): void {
   }
+
   createPhoto(photo: Photo) {
     if(this.imgBase64 != null){
       photo.infoPhotobase64 = this.imgBase64;
@@ -37,15 +37,14 @@ imgBase64 :string;
     });
 }
 
-
 onChange(event) {
-    if (event.target.value) {
-        const file = event.target.files[0];
-        const type = file.type;
-        this.changeFile(file).then((base64: string): any => {
-          this.imgBase64 = base64
-        });
-    } else alert('Nothing')
+  if (event.target.value) {
+    const file = event.target.files[0];
+    const type = file.type;
+    this.changeFile(file).then((base64: string): any => {
+      this.imgBase64 = base64
+    });
+} else alert('Nothing')
 }
 
   close() {

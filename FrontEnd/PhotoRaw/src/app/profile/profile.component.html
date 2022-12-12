@@ -1,39 +1,39 @@
  <body>
- <div class="artist">
+ <div class="artist" *ngIf="artists.id == usuarioLog">
 
-    <img   src="http://localhost:8080/api/img/{{artists[1].avatarId}}" />
-    <p>{{ artists[1].firstname }}  {{ artists[1].lastname }} <button mat-icon-button (click)="openDialogCreate()">
+    <img   src="http://localhost:8080/api/img/{{artists.avatarId}}" />
+    <p>{{ artists.firstname }}  {{ artists.lastname }} <button mat-icon-button (click)="openDialogCreate()">
       <mat-icon aria-label="label">library_add</mat-icon>
     </button></p>
 
 
  </div>
   <mat-grid-list cols="5"  *ngIf="photos">
-    <mat-grid-tile *ngFor="let photo any photos">
+    <mat-grid-tile *ngFor="let photo of photos">
 
       <mat-card class="container">
-        <img mat-card-md-image  src="http://localhost:8080/api/img/{{photo.imgId}}"  >
+        <img mat-card-md-image  src="http://localhost:8080/api/img/{{photo.idPhoto}}"  >
         <br>
         <mat-card-content class="info">
 
-          <p>{{ photo.name }}</p>
-          <p>Desde {{ photo.price }} €</p>
+          <p>{{ photo.title }}</p>
+          <p> {{ photo.price }} €</p>
 
         </mat-card-content>
-           <img src="http://localhost:8080/api/img/{{photo.imgId}}"  width="50%" height="50%"/>
 
 
-        <mat-card-actions class="btn">
-          <button mat-icon-button (click)="openDialogRead()" >
+
+        <mat-card-actions class="btn" >
+          <button mat-icon-button (click)="openDialogRead(photo)" >
             <mat-icon aria-label="label">visibility</mat-icon>
           </button>
-          <button mat-icon-button>
-            <mat-icon aria-label="label">add_shopping_cart</mat-icon>
+          <button mat-icon-button  *ngIf="artists.id !=usuarioLog">
+            <mat-icon aria-label="label" >add_shopping_cart</mat-icon>
           </button>
-            <button mat-icon-button (click)="openDialogUpdate()">
+            <button mat-icon-button (click)="openDialogUpdate(photo)" *ngIf="artists.id == usuarioLog">
               <mat-icon aria-label="label">edit</mat-icon>
             </button>
-              <button mat-icon-button (click)="openDialogDelete()">
+              <button mat-icon-button (click)="deletePhoto(photo)" *ngIf="artists.id == usuarioLog">
                 <mat-icon aria-label="label">delete</mat-icon>
               </button>
 

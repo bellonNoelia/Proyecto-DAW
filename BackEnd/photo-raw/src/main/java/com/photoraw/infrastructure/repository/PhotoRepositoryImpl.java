@@ -25,7 +25,15 @@ public class PhotoRepositoryImpl implements PhotoRepository{
 	public List<Photo> findAllPhotos() {
 		return photoMapper.toPhoto(crud.findAll());
 	}
+	@Override
+	public List<Photo> findPhotosByUser(Integer idUser) {
+		return photoMapper.toPhoto(crud.findPhotosByUser(idUser));
+	}
 
+	@Override
+	public Photo readPhoto(Integer idPhoto) {
+		return photoMapper.toPhoto(crud.readById(idPhoto));
+	}
 	@Override
 	public void deletePhoto(Integer idPhoto) {
 		crud.deleteById(idPhoto);

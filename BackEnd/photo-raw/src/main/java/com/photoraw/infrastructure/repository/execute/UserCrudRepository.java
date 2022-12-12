@@ -17,4 +17,9 @@ public interface UserCrudRepository extends JpaRepository<UserEntity, Integer> {
 	
 	@Query("SELECT u FROM #{#entityName} u WHERE u.idRol = :rol")
 	List<UserEntity> findByRol(@Param("rol") int rol);
+	
+	@Query("SELECT u FROM #{#entityName} u WHERE u.idRol = :rol and u.id = :idArtista")
+	UserEntity findByRolAndName(
+			@Param("rol") int rol,
+			@Param("idArtista") Integer idArtista);
 }

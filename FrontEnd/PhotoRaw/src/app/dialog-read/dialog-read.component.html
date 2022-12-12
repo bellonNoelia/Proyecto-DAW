@@ -6,23 +6,43 @@
     <div class="header">
       <mat-card-header>
         <!-- <div mat-card-avatar> <img mat-card-image src="{{ artists[1].img }}" style="width: 2rem;"/></div> -->
-        <mat-card-title style="font-size: 0.9rem;">{{ artists[1].firstname }} {{ artists[1].lastname }}</mat-card-title>
+        <mat-card-title style="font-size: 0.9rem;">{{ artist.firstname }} {{ artist.lastname }}</mat-card-title>
 
       </mat-card-header>
-      <div class="imgcontainer"> <img  src="{{photos[1].imgId}}" class="img"></div>
+      <div class="imgcontainer">
+        <img  src="http://localhost:8080/api/img/{{data.idPhoto}}" class="img">
+      </div>
+
 
       <mat-card-content class="infoContainer" >
       <br>
+      <br>
+<div>
+  <br>
       <div class="info">
-        <p>Precio {{ photos[1].price }} €</p>
-        <p>Medidas {{ photos[1].size}} </p>
+        <select name="{{data.idCategory}}" id="{{data.idCategory}}"  disabled selected>
+          <option value=1>Artística</option>
+          <option value=2>Arquitectura</option>
+          <option value=3>Autor</option>
+          <option value=4>Retrato</option>
+          <option value=5>Surrealista</option>
+          <option value=6>Paisajes</option>
+          <option value=7>Aérea</option>
+          <option value=8>Deportes</option>
+          <option value=9>Abstracta</option>
+          <option value=10>Gastronómica</option>
+          <option value=11>Naturaleza</option>
+          <option value=12>Animales</option>
+          <option value=13>Macrogotografía</option>
+          <option value=14>Moda</option>
+          <option value=15>Viajes</option>
+        </select>
+        <p>Precio {{ data.price }} €</p>
+        <p>Medidas {{ data.size}} </p>
       </div>
+    </div>
       </mat-card-content>
-      <mat-card-actions class="btn">
-        <button mat-icon-button>
-          <mat-icon >local_grocery_store</mat-icon>
-        </button>
-        </mat-card-actions>
+
 
     </div>
 

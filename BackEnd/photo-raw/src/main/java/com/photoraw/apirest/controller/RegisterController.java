@@ -15,10 +15,9 @@ import com.photoraw.apirest.mapper.UserDTOMapper;
 import com.photoraw.domain.entity.User;
 import com.photoraw.domain.usecase.RegisterUseCase;
 
-	@RestController
-	@RequestMapping("api/register")
-	@CrossOrigin(origins = "http://localhost:4200")
-
+@RestController
+@RequestMapping("api/register")
+@CrossOrigin(origins = "http://localhost:4200")
 public class RegisterController {
 
 		@Autowired

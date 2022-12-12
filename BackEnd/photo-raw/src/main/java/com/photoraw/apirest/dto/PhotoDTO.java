@@ -16,7 +16,7 @@ public class PhotoDTO {
 	@JsonProperty
 	private String infoPhotobase64;
 	@JsonProperty
-	private int idUser;
+	private int idArtist;
 	@JsonProperty
 	private int idCategory;
 	
@@ -24,13 +24,13 @@ public class PhotoDTO {
 		super();
 	
 	}
-	public PhotoDTO(Integer id, String title, String price, String size, int idUser, int idCategory, Integer idPhoto, String infoPhotobase64) {
+	public PhotoDTO(Integer id, String title, String price, String size, int idArtist, int idCategory, Integer idPhoto, String infoPhotobase64) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.price = price;
 		this.size = size;
-		this.idUser = idUser;
+		this.idArtist = idArtist;
 		this.idCategory = idCategory;
 		this.idPhoto = idPhoto;
 		this.infoPhotobase64 = infoPhotobase64;
@@ -59,11 +59,11 @@ public class PhotoDTO {
 	public void setSize(String size) {
 		this.size = size;
 	}
-	public int getIdUser() {
-		return idUser;
+	public int getIdArtist() {
+		return idArtist;
 	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setIdArtist(int idUser) {
+		this.idArtist = idUser;
 	}
 	public int getIdCategory() {
 		return idCategory;

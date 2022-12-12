@@ -25,7 +25,7 @@ export class PhotosComponent implements OnInit {
     });
   }
 
-  openDialogRead() {
-    const dialogRef = this.dialog.open(DialogReadComponent, { data: new Object});
+  openDialogRead(photo:Photo) {
+    const dialogRef = this.dialog.open(DialogReadComponent, { data: photo});
   }
 }

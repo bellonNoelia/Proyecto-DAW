@@ -16,7 +16,9 @@ export class Service {
   private urlApi = 'http://localhost:8080/api/login'
   private urlApiRegister = 'http://localhost:8080/api/register'
   private urlApiListado = 'http://localhost:8080/api/user/artists'
+  private urlApiUserLog = 'http://localhost:8080/api/user/userLog'
   private urlApiPhotos = 'http://localhost:8080/api/photos'
+
 
   public login(user: User):Observable<Token>{
       const body = JSON.stringify(user);
@@ -32,10 +34,16 @@ export class Service {
       return this.http.post(`${this.urlApiRegister}`,body, {'headers': header})
 
   }
+  public userLog(){
+    return this.http.get(`${this.urlApiUserLog}`,{ headers: this.getHeader()});
+}
 
-  public getArtists(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlApiListado}`,{
-      headers: this.getHeader()});
+public getArtistsAll(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlApiListado}`, { headers: this.getHeader() });
+}
+
+public getArtists(idArtista:number): Observable<User>{
+  return this.http.get<User>(`${this.urlApiListado}/${idArtista}`, { headers: this.getHeader() });
 }
 
 public findAll(): Observable<Photo[]> {
@@ -43,7 +51,15 @@ public findAll(): Observable<Photo[]> {
       headers: new HttpHeaders().set('Type-content', 'aplication/json')
   });
 }
+public findPhotosByUser(idArtist:number): Observable<Photo[]> {
+  return this.http.get<Photo[]>(`${this.urlApiPhotos}/findPhotosByUser/${idArtist}`, {
+      headers: new HttpHeaders().set('Type-content', 'aplication/json')
+  });
+}
 
+public readPhoto(idPhoto: number): Observable<{}>{
+  return this.http.get(`${this.urlApiPhotos}/readPhoto/${idPhoto}`,{ headers: this.getHeader()});
+}
 public updatePhoto (Photo: Photo): Observable<{}>{
   const body=JSON.stringify(Photo);
   console.log(body)
@@ -57,7 +73,7 @@ public createPhoto (photo: Photo): Observable<{}>{
 }
 
 public deletePhoto (idPhoto: number): Observable<{}>{
-  return this.http.delete(`${this.urlApiPhotos}/deletePhotos/${idPhoto}`, {
+  return this.http.delete(`${this.urlApiPhotos}/deletePhoto/${idPhoto}`, {
     headers: new HttpHeaders().set('Type-content', 'aplication/json')
   });
 }

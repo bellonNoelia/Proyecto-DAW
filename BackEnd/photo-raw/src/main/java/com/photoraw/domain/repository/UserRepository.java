@@ -9,4 +9,6 @@ public interface UserRepository {
 	User login(String email, String pwd);
 	
 	 List<User> listadoArtistas(int idRol);
+
+	User getArtist(int idRol, Integer idArtista);
 }

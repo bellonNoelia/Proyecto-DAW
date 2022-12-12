@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.photoraw.apirest.dto.PhotoDTO;
 import com.photoraw.apirest.mapper.PhotoDTOMapper;
 import com.photoraw.domain.commons.TokenException;
+import com.photoraw.domain.entity.Photo;
 import com.photoraw.domain.usecase.PhotoUseCase;
 
 
@@ -39,6 +40,18 @@ public class PhotosController {
 	public ResponseEntity<List<PhotoDTO>>findAllPhotos(){
 		List<PhotoDTO> result=photoDTOMapper.toPhotoDTO(photoUseCase.findAllPhotos());
 		return ResponseEntity.ok().body(result);
+		
+	}
+	@GetMapping("findPhotosByUser/{id}")
+	public ResponseEntity<List<PhotoDTO>>findPhotosByUser(@PathVariable("id") Integer idUser){
+		List<PhotoDTO> result=photoDTOMapper.toPhotoDTO(photoUseCase.findPhotosByUser(idUser));
+		return ResponseEntity.ok().body(result);
+		
+	}
+	@GetMapping("readPhoto/{id}")
+	public ResponseEntity<Photo> readPhoto(@PathVariable("id") Integer idPhoto){
+		PhotoDTO result=photoDTOMapper.toPhotoDTO(photoUseCase.readPhoto(idPhoto));
+		return ResponseEntity.ok().body(photoDTOMapper.toPhoto(result));
 		
 	}
 	@DeleteMapping("deletePhoto/{id}")

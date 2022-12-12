@@ -15,7 +15,6 @@ import { DialogReadComponent } from './dialog-read/dialog-read.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { PhotosComponent } from './photos/photos.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
-import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
 import { DialogCreateComponent } from './dialog-create/dialog-create.component';
 
@@ -61,7 +60,6 @@ import { RoutingModule } from './routing/routing.module';
     DialogLoginComponent,
     PhotosComponent,
     DialogRegisterComponent,
-    DialogDeleteComponent,
     DialogUpdateComponent,
     DialogCreateComponent
   ],

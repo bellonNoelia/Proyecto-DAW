@@ -34,7 +34,21 @@ public class UserUseCaseImpl implements UserUseCase {
 	@Override
 	public List<User> listadoArtistas(String token) throws TokenException {
 		this.tokenUseCase.getUserByToken(token);
+		
 		return userRepository.listadoArtistas(1);
+	}
+	
+	@Override
+	public User getArtist(String token, Integer idPhoto) throws TokenException {
+		this.tokenUseCase.getUserByToken(token);	
+		return userRepository.getArtist(1, idPhoto);
+	}
+
+	@Override
+	public User usuarioLogado(String token) throws TokenException {
+		User user=this.tokenUseCase.getUserByToken(token);
+		
+		return user;
 	}
 
 	

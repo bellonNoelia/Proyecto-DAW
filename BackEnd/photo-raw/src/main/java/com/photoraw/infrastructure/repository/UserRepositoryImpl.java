@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.photoraw.domain.commons.TokenException;
 import com.photoraw.domain.entity.User;
 import com.photoraw.domain.repository.UserRepository;
 import com.photoraw.infrastructure.mapper.UserMapper;
@@ -29,4 +30,9 @@ public class UserRepositoryImpl implements UserRepository {
 		return userMapper.toUserList(crud.findByRol(idRol));
 	}
 	
+	@Override
+	public User getArtist(int idRol, Integer idArtista) {
+		return userMapper.toUser(crud.findByRolAndName(idRol,idArtista));
+	}
+
 }

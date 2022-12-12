@@ -35,6 +35,14 @@ public class PhotoUseCaseImpl implements PhotoUseCase {
 	}
 
 	@Override
+	public List<Photo> findPhotosByUser(Integer idUser) {
+		return photoRepository.findPhotosByUser(idUser);
+	}
+	@Override
+	public Photo readPhoto(Integer idPhoto) {
+		return photoRepository.readPhoto(idPhoto);
+	}
+	@Override
 	public void deletePhoto(Integer idPhoto) {
 		photoRepository.deletePhoto(idPhoto);
 	}
