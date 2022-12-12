@@ -33,7 +33,6 @@ public class UserEntity implements Serializable {
 	private String lastName;
 	@Column(name = "user_age")
 	@NotNull
-	@NotBlank
 	private int age;
 	@Column(name = "user_email")
 	@NotNull
@@ -45,7 +44,6 @@ public class UserEntity implements Serializable {
 	private String pwd;
 	@Column(name = "rol_id")
 	@NotNull
-	@NotBlank
 	private int idRol;
 
 	public UserEntity(Integer id, int avatarId, String firstName, String lastName, int age, String email, String pwd,
