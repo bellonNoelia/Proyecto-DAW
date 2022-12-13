@@ -1,5 +1,5 @@
 <body>
-  <mat-grid-list cols="4" rowHeight="2:1" *ngIf="artists">
+  <mat-grid-list *ngIf="artists" [cols]="columnas"  (window:resize)="handleSize($event)">
     <mat-grid-tile *ngFor="let artist of artists">
       <mat-card class="container">
         <mat-card-header class="hcontainer">

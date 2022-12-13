@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   idUsuario: number;
   usuarioLog:any;
   photos : Photo[];
+  columnas: number;
 
   constructor(
     public dialog: MatDialog,
@@ -32,8 +33,11 @@ export class ProfileComponent implements OnInit {
     this.getArtists();
     this.userLog();
     this.findPhotosByUser();
-
-    }
+    this.columnas = (window.innerWidth <= 600) ? 1 : 6;
+  }
+  handleSize(event) {
+  this.columnas = (event.target.innerWidth <= 600) ? 1 : 6;
+  }
 
     private getArtists(){
       this.service.getArtists(this.getParameter()).subscribe(data => {

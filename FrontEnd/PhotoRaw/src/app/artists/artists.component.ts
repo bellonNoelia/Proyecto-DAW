@@ -12,10 +12,15 @@ import { Service } from '../service/service.service';
 export class ArtistsComponent implements OnInit {
   artists: User[];
   router: Route;
+  columnas: number;
   constructor(public service: Service) {}
 
   ngOnInit(): void {
     this.getArtists();
+    this.columnas = window.innerWidth <= 600 ? 1 : 5;
+  }
+  handleSize(event) {
+    this.columnas = event.target.innerWidth <= 600 ? 1 : 5;
   }
 
   private getArtists() {
@@ -28,7 +33,6 @@ export class ArtistsComponent implements OnInit {
       },
     });
   }
-
 
   private matchError(statusCode) {
     switch (statusCode) {
@@ -43,7 +47,6 @@ export class ArtistsComponent implements OnInit {
         break;
       }
       default: {
-
         break;
       }
     }
