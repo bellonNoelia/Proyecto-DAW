@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogRegisterComponent } from '../dialog-register/dialog-register.component';
 import { Token } from '../model/token';
 
+
 @Component({
   selector: 'app-dialog-login',
   templateUrl: './dialog-login.component.html',
@@ -28,10 +29,10 @@ export class DialogLoginComponent implements OnInit {
       next: (data: Token) => {
         localStorage.setItem("token", data.token)
         this.close();
-
+        window.open("http://localhost:4200/artists","_self");
       },
       error: (error) => {
-        if (error.status == 500) {
+        if (error.status == 500 || error.status == 401) {
           localStorage.clear();
           alert('Error al realizar el loging');
         }

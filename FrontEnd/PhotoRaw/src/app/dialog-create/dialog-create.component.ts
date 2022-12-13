@@ -24,6 +24,7 @@ imgBase64 :string;
       photo.infoPhotobase64 = this.imgBase64;
       this.service.createPhoto(photo).subscribe(() => {
         this.close();
+        location.reload();
       });
     }
   }

@@ -53,4 +53,9 @@ public class TokenUseCaseImpl implements TokenUseCase {
 		tokenRegister.get(token).setFechaCreacionToken(LocalTime.now());
 	}
 
+	@Override
+	public void removeToken(String token) {
+		this.tokenRegister.remove(token);
+	}
+
 }

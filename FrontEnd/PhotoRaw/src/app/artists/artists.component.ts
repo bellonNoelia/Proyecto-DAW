@@ -29,7 +29,7 @@ export class ArtistsComponent implements OnInit {
     });
   }
 
-  // TODO mover a otra clase
+
   private matchError(statusCode) {
     switch (statusCode) {
       case 401: {
@@ -43,7 +43,7 @@ export class ArtistsComponent implements OnInit {
         break;
       }
       default: {
-        //statements;
+
         break;
       }
     }

@@ -5,7 +5,7 @@
   <div mat-card-avatar class="avatar">
     <img mat-card-md-image src="./assets/img/black.png" />
   </div>
-  <form method="post">
+  <form method="post" #f="ngForm" class="form" style="margin-top: 2em;">
   <mat-card-header class="header">
     <mat-card-title>Registro</mat-card-title>
   </mat-card-header>
@@ -24,7 +24,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" name="email" [(ngModel)]="data.email" required/>
+        <input matInput placeholder="Email" name="email" [(ngModel)]="data.email" [email]="true" required/>
       </mat-form-field>
       <mat-form-field appearance="fill" >
         <mat-label>Contraseña</mat-label>
@@ -32,42 +32,19 @@
           matInput
           [type]="hide ? 'password' : 'text'"
           placeholder="Contraseña"
-          name="pwd" [(ngModel)]="data.pwd" required/>
-        <button
-          mat-icon-button matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <mat-icon matSuffix>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-        </button>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Confirmar Contraseña</mat-label>
-      <input
-          matInput
-          [type]="hide ? 'password' : 'text'"
-          placeholder="Contraseña"
-          name="pwdConfirm" [(ngModel)]="pwdConfirm" required/>
-        <button
-          mat-icon-button matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
+          name="pwd" [(ngModel)]="data.pwd" ngModel minlength="6" required/>
 
-          <mat-icon  matSuffix>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-        </button>
       </mat-form-field>
+
       <br>
-      <mat-radio-group [(ngModel)]="data.rol" [ngModelOptions]="{standalone: true}">
-        <mat-radio-button  value=1>Fotógrafo</mat-radio-button>
-        <mat-radio-button  value=2>Usuario</mat-radio-button>
+      <mat-radio-group [(ngModel)]="data.rol" [ngModelOptions]="{standalone: true}" >
+        <mat-radio-button  type="radio" value=1>Fotógrafo</mat-radio-button>
+        <mat-radio-button  type="radio"  value=2>Usuario</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
 
   <mat-card-actions class="btn">
-    <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="register(data)">Registrar</button>
+    <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!f.valid" (click)="register(data)">Registrar</button>
   </mat-card-actions>
 </form>
 </mat-card>

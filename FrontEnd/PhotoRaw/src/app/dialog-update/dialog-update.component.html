@@ -2,7 +2,7 @@
   <button class="close" mat-icon-button (click)="close()">
     <mat-icon>close</mat-icon>
   </button>
-  <form method="get">
+  <form method="get" class="form">
     <mat-card-header class="header">
       <mat-card-title>Modificar producto</mat-card-title>
     </mat-card-header>
@@ -41,7 +41,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio" name="price" type="number" [(ngModel)]="data.price"   required />
+        <input matInput placeholder="Precio" min="1" name="price" type="number" [(ngModel)]="data.price"   required />
       </mat-form-field>
 
       <mat-form-field appearance="fill">

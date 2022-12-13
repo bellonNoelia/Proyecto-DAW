@@ -18,6 +18,7 @@ export class Service {
   private urlApiListado = 'http://localhost:8080/api/user/artists'
   private urlApiUserLog = 'http://localhost:8080/api/user/userLog'
   private urlApiPhotos = 'http://localhost:8080/api/photos'
+  private urlApiLogout = 'http://localhost:8080/api/login/logout'
 
 
   public login(user: User):Observable<Token>{
@@ -27,6 +28,11 @@ export class Service {
       body, {'headers': header}
       )
   }
+
+  public logout(){
+    return this.http.get<Token>(`${this.urlApiLogout}`, {headers: this.getHeader()});
+
+}
 
   public register(user: User):Observable<{}>{
       const header = {'content-type': 'application/json'}

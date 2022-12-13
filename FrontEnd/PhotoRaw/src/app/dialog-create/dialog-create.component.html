@@ -2,7 +2,7 @@
   <button class="close" mat-icon-button (click)="close()">
     <mat-icon>close</mat-icon>
   </button>
-  <form method="get">
+  <form class="form" method="get" #f="ngForm">
     <mat-card-header class="header">
       <mat-card-title>Añadir producto</mat-card-title>
     </mat-card-header>
@@ -35,7 +35,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio" name="price" type="number" [(ngModel)]="data.price" required />
+        <input matInput placeholder="Precio" name="price" min="1" type="number" [(ngModel)]="data.price" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill">
@@ -51,7 +51,7 @@
           <mat-icon>attach_file</mat-icon>
         </button>
         <input class="file" type="text" readonly matInput />
-        <input class="file" type="file"  accept="image/*" #file (change)="onChange($event)"  required />
+        <input class="file" type="file"  accept="image/*" #file  (change)="onChange($event)"  required />
 
       </mat-form-field>
 
@@ -59,7 +59,7 @@
     </mat-card-content>
 
     <mat-card-actions class="btn">
-      <button mat-stroked-button color="primary" class="btn-block" (click)="createPhoto(data)" type="submit">
+      <button mat-stroked-button color="primary" class="btn-block" [disabled]="!f.valid" (click)="createPhoto(data)" type="submit">
         Añadir
       </button>
     </mat-card-actions>

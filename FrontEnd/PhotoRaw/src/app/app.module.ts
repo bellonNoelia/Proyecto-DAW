@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 //Componentes
 import { HeaderComponent } from './header/header.component';
 import { LoginControllerComponent } from './login-controller/login-controller.component';
@@ -33,18 +32,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 
-
-
-
-
 //Módulos
 import { RoutingModule } from './routing/routing.module';
-
-
-
-
-
-
 
 
 @NgModule({
@@ -61,7 +50,8 @@ import { RoutingModule } from './routing/routing.module';
     PhotosComponent,
     DialogRegisterComponent,
     DialogUpdateComponent,
-    DialogCreateComponent
+    DialogCreateComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -79,7 +69,7 @@ import { RoutingModule } from './routing/routing.module';
     MatGridListModule,
     MatDialogModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
 
 
   ],

@@ -9,4 +9,6 @@ public interface TokenUseCase {
 	
 	User getUserByToken(String token) throws TokenException;
 	
+	void removeToken(String token);
+	
 }

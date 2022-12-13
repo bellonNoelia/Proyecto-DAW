@@ -19,7 +19,7 @@
       <input matInput type="search" placeholder="Buscar" class="search-input">
     </div>
     <div class="logout" *ngIf="isLoging">
-        <button mat-raised-button color="warn" onclick="logout()">Cerrar sesión</button>
+        <button mat-raised-button color="warn" (click)="logout()">Cerrar sesión</button>
     </div>
   </mat-toolbar>
 

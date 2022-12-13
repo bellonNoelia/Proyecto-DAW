@@ -11,7 +11,6 @@ import { User } from '../model/user';
 
 })
 export class DialogRegisterComponent implements OnInit {
-
   pwdConfirm:string;
 
 hide=true;
@@ -28,7 +27,7 @@ hide=true;
         this.close();
       },
       error: (error) => {
-        if (error.status == 500) {
+        if (error.status == 500 || error.status == 401) {
           alert("Error al insertar los datos")
         }
       },

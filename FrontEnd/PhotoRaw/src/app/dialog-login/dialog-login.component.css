@@ -11,7 +11,7 @@
 }
 .header {
   margin-top: 2em;
-  margin-left: 7.5em;
+  margin-left: 1em;
 }
 .form {
   margin-left: 5em;
@@ -20,7 +20,7 @@
   display: block;
 }
 .btn {
-  margin-left: 7.5em;
+  margin-left: 5em;
 
 }
 .register{
@@ -28,4 +28,13 @@
   background-color: #2196f3;
   margin-left:0.5rem;
 
+}
+.form{
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

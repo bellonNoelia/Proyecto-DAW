@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
+import { Service } from '../service/service.service';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +9,20 @@ import { User } from '../model/user';
 })
 export class HeaderComponent implements OnInit {
 user:User;
-
 isLoging: boolean;
 
-  constructor() { }
+  constructor(public service:Service) { }
 
   ngOnInit(): void {
     this.isLoging = localStorage.getItem('token') != null;
   }
 logout(){
-  localStorage.removeItem("token")
-  location.reload();
+  this.service.logout().subscribe (() =>{
+      localStorage.removeItem('token');
+      window.open("http://localhost:4200/home","_self");
+  });
+    }
+
+
 }
-}
+

@@ -5,19 +5,25 @@
 
 }
 .avatar {
-  margin-left: 8em;
+  margin-left: 12em;
 }
 .avatar img {
   height: 4em;
   width: 6em;
 }
-.header {
-  margin-top: 2em;
-  margin-left: 7.5em;
-}
+
 
 
  .mat-form-field {
   margin-left: 0.7em;
 
+}
+.form{
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

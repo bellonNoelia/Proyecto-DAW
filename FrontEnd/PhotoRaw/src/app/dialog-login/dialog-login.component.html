@@ -5,36 +5,29 @@
   <div mat-card-avatar class="avatar">
     <img mat-card-md-image src="./assets/img/black.png" />
   </div>
-  <form method="post">
+  <form method="post" #f="ngForm" class="form">
   <mat-card-header class="header">
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
   <mat-card-content class="form">
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input [(ngModel)]="data.email" type="email" name="email" required matInput placeholder="Email" />
+      <input [(ngModel)]="data.email" ngModel [email]="true" type="email" name="email" required matInput placeholder="Email" />
     </mat-form-field>
     <mat-form-field appearance="fill" class="pwd">
       <mat-label>Contraseña</mat-label>
       <input
       [(ngModel)]="data.pwd" name="pwd" required
-        matInput
+        matInput ngModel minlength="6"
         [type]="hide ? 'password' : 'text'"
         placeholder="Contraseña"
       />
-      <button
-        mat-icon-button matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
+
     </mat-form-field>
   </mat-card-content>
 
-  <mat-card-actions class="btn">
-    <button mat-raised-button color="primary"  type="submit"  (click)="login(data)">Log in</button>
+  <mat-card-actions class="btn" style="margin-left:1em;">
+    <button mat-raised-button color="primary"  type="submit" [disabled]="!f.valid" (click)="login(data)">Log in</button>
     <button mat-raised-button (click)="openDialogRegister()"  class="register">Registro</button>
   </mat-card-actions>
 </form>
