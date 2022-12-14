@@ -45,7 +45,7 @@ onChange(event) {
     this.changeFile(file).then((base64: string): any => {
       this.imgBase64 = base64
     });
-} else alert('Nothing')
+} else alert('Error al cargar la imagen')
 }
 
   close() {
