@@ -20,7 +20,7 @@
 <div>
   <br>
       <div class="info">
-        <select name="{{data.idCategory}}" id="{{data.idCategory}}"  disabled selected>
+        <select matNativeControl [(ngModel)]="data.idCategory" [ngModelOptions]="{standalone: true}" value={{data.idCategory}}  disabled selected>
           <option value=1>Artística</option>
           <option value=2>Arquitectura</option>
           <option value=3>Autor</option>
